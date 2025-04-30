@@ -1,0 +1,132 @@
+:root {
+    --azul-principal: #02142b;
+    --azul-claro: #00a7e1;
+    --blanco: #ffffff;
+    --gris: #f5f5f5;
+  }
+  
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    background: var(--blanco);
+    color: #333;
+  }
+  
+  .container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+  }
+  
+  header {
+    background: var(--azul-principal);
+    padding: 15px 0;
+    color: var(--blanco);
+  }
+  
+  .logo {
+    height: 50px;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+  }
+  
+  nav ul li a {
+    color: var(--blanco);
+    text-decoration: none;
+    padding: 8px 12px;
+    transition: 0.3s;
+  }
+  
+  nav ul li a:hover {
+    background: var(--azul-claro);
+    border-radius: 4px;
+  }
+  
+  #hero {
+    background: url('../images/hero.jpg') center/cover no-repeat;
+    padding: 120px 20px;
+    text-align: center;
+    color: var(--blanco);
+  }
+  
+  #hero h1 {
+    font-size: 2.5rem;
+    color: var(--azul-claro);
+  }
+  
+  h2 {
+    color: var(--azul-principal);
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--azul-claro);
+    display: inline-block;
+  }
+  
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .card {
+    flex: 1 1 calc(33.333% - 20px);
+    background: var(--gris);
+    padding: 15px;
+    border-radius: 5px;
+    text-align: center;
+  }
+  
+  .card img {
+    width: 100%;
+    border-radius: 5px;
+  }
+  
+  .carousel {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+  
+  .carousel img {
+    height: 60px;
+    filter: grayscale(100%);
+    transition: filter 0.3s ease;
+  }
+  
+  .carousel img:hover {
+    filter: grayscale(0%);
+  }
+  
+  footer {
+    background: var(--azul-principal);
+    color: var(--blanco);
+    text-align: center;
+    padding: 20px;
+  }
+  
+  @media (max-width: 768px) {
+    .row {
+      flex-direction: column;
+    }
+  
+    .card {
+      flex: 1 1 100%;
+    }
+  
+    nav ul {
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+  
