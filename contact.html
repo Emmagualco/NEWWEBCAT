@@ -7,16 +7,38 @@
   <link rel="stylesheet" href="assets/css/style.css">
   
 </head>
+
 <body>
   <header>
     <div class="container navbar">
-      <img src="assets/images/logo.png" class="logo" alt="Logo CAT">
+      <div class="logo">
+        <a href="index.html"><img src="assets/images/logo.png" class="logo" alt="Logo CAT"></a>
+      </div>
       <nav>
-        <ul>
+        <ul class="navbar-nav">
           <li><a href="index.html">Inicio</a></li>
-          <li><a href="about.html">Nosotros</a></li>
-          <li><a href="services.html">Servicios</a></li>
-          <li><a href="contact.html" class="active">Contacto</a></li>
+
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle">La Empresa</a>
+            <ul class="dropdown-menu">
+              <li><a href="quienessomos.html">Quiénes Somos</a></li>
+              <li><a href="nuestrahistoria.html">Nuestra Historia</a></li>
+              <li><a href="gestion-calidad.html">Gestión de Calidad y Medio Ambiente</a></li>
+              <li><a href="empresas-confian-nosotros.html">Empresas que Confían en Nosotros</a></li>
+            </ul>
+          </li>
+
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle">Servicios</a>
+            <ul class="dropdown-menu">
+              <li><a href="logistica_cargas.html">Logística de Cargas</a></li>
+              <li><a href="logistica_vehiculos.html">Logística de Vehículos</a></li>
+              <li><a href="otrosservicios.html">Otros Servicios</a></li>
+            </ul>
+          </li>
+
+          <li><a href="noticias.html">Novedades</a></li>
+          <li><a href="contact.html">Contacto</a></li>
         </ul>
       </nav>
     </div>
