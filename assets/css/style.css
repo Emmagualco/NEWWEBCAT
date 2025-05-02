@@ -107,7 +107,7 @@ header {
      ====================================================== */
 #hero {
   position: relative;
-  height: 60vh;
+  height: 65vh;
   overflow: hidden;
 }
 
@@ -249,7 +249,7 @@ section h2 {
 }
 
 .carousel img {
-  height: 60px;
+  height: 80px;
   filter: grayscale(100%);
   transition: filter 0.3s;
 }
@@ -263,18 +263,25 @@ section h2 {
   justify-content: center;
   align-items: center;
 }
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .swiper-slide img {
-  max-width: 210px;  /* ancho */
-  max-height:105px;  /* alto */
+  width: 200px;
+  height: 100px;
   object-fit: contain;
-  padding: 6px;
   transition: transform 0.3s ease;
+  padding: 10px;
 }
 
 .swiper-slide img:hover {
-  transform: scale(1);
+  transform: scale(1.05);
 }
+
+
 
 
 
