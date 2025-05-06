@@ -10,7 +10,7 @@
   body {
     font-family: 'Hind', sans-serif;
     background-color: #ffffff;
-    color: #333333;
+    color:#003057;
     line-height: 1.5;
   }
   
@@ -140,10 +140,9 @@
     font-size: 4rem;
     color: white;
     background-color: rgba(0, 0, 0, 0.6);
-    padding: 20px 20px;
-    z-index: 2;
-    opacity: 1;
-    /* por encima de los slides */
+    padding: 40px 40px;
+    z-index: 1;
+    opacity: 0.8;
   }
   
  /* ======================================================
@@ -157,15 +156,15 @@
 }
 
 #video-presentacion h2 {
-  color: #003057; /* Color del título (azul oscuro, similar a otros títulos) */
-  font-size: 2.5rem; /* Tamaño de la fuente del título (ajusta según necesites) */
-  margin-bottom: 15px; /* Espacio entre el título y el video */
-  font-weight: bold; /* Hace el título en negrita */
-  text-align: center; /* Centra el texto del título */
+  color: #003057; 
+  font-size: 2.5rem; 
+  margin-bottom: 15px; 
+  font-weight: bold; 
+  text-align: center; 
 }
 
 #video-presentacion video {
-  width: 80%; /* Ancho del video (ajusta según necesites) */
+  width: 75%; /* Ancho del video (ajusta según necesites) */
   max-width: 1200px; /* Ancho máximo del video (opcional) */
   height: auto;
   background-color: #ffffff; /* O el color de fondo de tu sitio */
@@ -177,6 +176,7 @@
   section h2 {
     color: #003057;
     border-bottom: 2px solid #00a7e1;
+    text-align: center;
     padding-bottom: 5px;
     margin-bottom: 20px;
   }
@@ -205,114 +205,69 @@
     width: 100%;
     border-radius: 5px;
   }
-  
-  /* ======================================================
-     FORMULARIO DE CONTACTO
-     ====================================================== */
-  .contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    background-color: #f7f9fc;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  .contact-form label {
-    font-weight: bold;
-    color: #003057;
-  }
-  
-  .contact-form input,
-  .contact-form textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 1rem;
-    font-family: inherit;
-  }
-  
-  .contact-form .btn {
-    width: fit-content;
-    padding: 10px 25px;
-    background-color: #00a7e1;
-    border: none;
-    color: white;
-    font-weight: bold;
-    border-radius: 4px;
-    cursor: pointer;
-    align-self: flex-start;
-    transition: background 0.3s;
-  }
-  
-  .contact-form .btn:hover {
-    background-color: #0076a3;
-  }
-  
+    
   /* ======================================================
    CARRUSEL CLIENTES
    ====================================================== */
 #clientes {
   background-image: url('../images/clientes/cat-mundial.jpg');
-  background-size: contain; /* Cambiamos a 'contain' para ver el mapa completo */
+  background-size: contain; 
   background-position: center;
   background-repeat: no-repeat;
-  padding: 80px 20px; /* Aumentamos el padding vertical */
+  padding: 80px 20px;
   color: white;
-  text-align: center; /* Centramos el texto "Confían en nosotros" */
+  text-align: center; 
 }
 
 #clientes h2 {
   color: #003057;
   border-bottom: 2px solid #00a7e1;
   padding-bottom: 10px;
-  margin-bottom: 40px; /* Aumentamos el margen inferior del título */
-  display: inline-block; /* Para que el border-bottom solo ocupe el ancho del texto */
+  margin-bottom: 40px; 
+  display: inline-block; 
 }
 
 .swiper {
   width: 100%;
-  padding: 40px 0; /* Añadimos padding arriba y abajo del carrusel */
+  padding: 40px 0; 
 }
 
 .swiper-wrapper {
   display: flex;
   align-items: center;
-  justify-content: space-around; /* Distribuimos los logos */
+  justify-content: space-around; 
 }
 
 .swiper-slide {
-  width: auto; /* Ajustamos el ancho al contenido */
+  width: auto; 
   height: auto;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0 20px; /* Añadimos espacio horizontal entre logos */
+  padding: 0 20px; 
 }
 
 .swiper-slide img {
-  max-width: 150px; /* Ajustamos el tamaño máximo de los logos */
+  max-width: 150px; 
   max-height: 80px;
   object-fit: contain;
-  /* filter: grayscale(100%); Eliminamos esta línea para quitar la escala de grises */
+  /* filter: grayscale(100%);  */
   transition: filter 0.3s ease;
 }
 
 .swiper-slide img:hover {
-  filter: grayscale(0); /* Mantenemos el efecto al pasar el ratón */
+  filter: grayscale(0); /*efecto al pasar el mouse */
 }
 
 /* Ajustes para pantallas más pequeñas */
 @media (max-width: 768px) {
   .swiper-wrapper {
-    justify-content: space-around; /* Mantenemos la distribución */
-    flex-wrap: wrap; /* Permitimos que los logos se envuelvan */
+    justify-content: space-around; 
+    flex-wrap: wrap; 
   }
   .swiper-slide {
     padding: 15px;
-    width: 30%; /* Damos un ancho aproximado en pantallas pequeñas */
+    width: 30%; /* ancho aproximado en pantallas pequeñas */
     margin-bottom: 20px; /* Espacio entre filas de logos */
   }
   .swiper-slide img {
@@ -328,28 +283,28 @@
   footer {
     background-color: #02142b;
     color: white;
-    padding: 20px; /* Reduje el padding general para que se vea más compacto */
-    display: flex; /* Usamos flexbox para la disposición de los elementos */
-    align-items: center; /* Alinea verticalmente los elementos en el centro */
-    justify-content: space-between; /* Espacia el data fiscal a la izquierda y el resto a la derecha */
-    flex-wrap: wrap; /* Permite que los elementos se envuelvan en pantallas pequeñas */
+    padding: 20px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between; 
+    flex-wrap: wrap; 
   }
   
   .data-fiscal {
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Alinea la imagen y el texto a la izquierda dentro de su contenedor */
-    margin-right: 20px; /* Espacio entre el data fiscal y el resto del contenido */
+    align-items: flex-start; 
+    margin-right: 20px; 
   }
   
   .data-fiscal img {
-    width: 50px; /* Tamaño pequeño para el código QR */
+    width: 50px; 
     height: auto;
     margin-bottom: 5px;
   }
   
   .data-fiscal p {
-    font-size: 0.7rem; /* Tamaño de fuente pequeño para "DATA FISCAL" */
+    font-size: 0.7rem; 
     color: white;
     text-align: left;
   }
@@ -357,8 +312,8 @@
   .footer-content {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centra los elementos verticalmente en pantallas pequeñas */
-    text-align: center; /* Centra el texto en pantallas pequeñas */
+    align-items: center; 
+    text-align: center; 
   }
   
   .footer-info {
@@ -403,14 +358,14 @@
     font-size: 0.7rem;
   }
   
-  /* Media query para pantallas más anchas (para una disposición en línea) */
+  /* Media query para pantallas más anchas */
   @media (min-width: 600px) {
     .footer-content {
       flex-direction: row;
       justify-content: space-around;
       align-items: center;
       text-align: left;
-      width: 100%; /* O el ancho que necesites */
+      width: 100%; 
     }
   
     .footer-info {
