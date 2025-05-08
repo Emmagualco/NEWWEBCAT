@@ -1,0 +1,33 @@
+/* ===== MAP SECTION ===== */
+.map-section {
+    background-color: #f9f9f9;
+    padding: 60px 20px;
+    text-align: center;
+  }
+  
+  .map-section h1 {
+    color: #003057;
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+  }
+  
+  .map-wrapper {
+    overflow: hidden;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  
+  .map-svg {
+    transform: scale(1.8) translate(-30%, 25%);
+    transform-origin: center;
+    width: 100%;
+    height: auto;
+  }
+  
+  @media (max-width: 768px) {
+    .map-svg {
+      transform: scale(1.5) translate(-30%, 25%);
+    }
+  }
+  

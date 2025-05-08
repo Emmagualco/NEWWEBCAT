@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Presencia Global - Groupe CAT</title>
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="stylesheet" href="../NEWWEBCAT/assets/css/presencia.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+
+<body>
+
+  <!-- Header / Navbar -->
+
+  <header>
+    <div class="container navbar">
+      <div class="logo">
+        <a href="index.html"><img src="assets/images/logo.png" class="logo" alt="Logo CAT"></a>
+      </div>
+
+
+      <nav>
+        <ul class="navbar-nav">
+          <li><a href="index.html">Inicio</a></li>
+
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle">La Empresa</a>
+            <ul class="dropdown-menu">
+              <li><a href="/pages/quienessomos.html">Quiénes Somos</a></li>
+              <li><a href="/pages/nuestrahistoria.html">Nuestra Historia</a></li>
+              <li><a href="/pages/gestion-calidad.html">Gestión de Calidad y Medio Ambiente</a></li>
+              <!-- <li><a href="/pages/empresas-confian-nosotros.html">Empresas que Confían en Nosotros</a></li> -->
+            </ul>
+          </li>
+
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle">Servicios</a>
+            <ul class="dropdown-menu">
+              <li><a href="/pages/logistica_cargas.html">Logística de Cargas</a></li>
+              <li><a href="/pages/logistica_vehiculos.html">Logística de Vehículos</a></li>
+              <li><a href="/pages/otrosservicios.html">Otros Servicios</a></li>
+            </ul>
+          </li>
+          <li><a href="presencia.html">Presencia Mundial</a></li>
+          <li><a href="/pages/noticias.html">Novedades</a></li>
+          <li><a href="contact.html">Contacto</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- Contenido -->
+  <main class="page-content">
+    <div class="container">
+      <h1 class="centered">Nuestra Presencia Global</h1>
+      <div id="map" style="height: 500px; border-radius: 6px; overflow: hidden;"></div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="data-fiscal">
+      <img src="assets/images/datafiscal.jpg" alt="Data Fiscal - Código QR">
+    </div>
+    <ul class="social-icons">
+      <li><a href="https://www.facebook.com/tu_pagina" target="_blank" rel="noopener noreferrer"><i
+            class="fab fa-facebook-f"></i></a></li>
+      <li><a href="https://twitter.com/tu_usuario" target="_blank" rel="noopener noreferrer"><i
+            class="fab fa-twitter"></i></a></li>
+      <li><a href="https://www.linkedin.com/company/tu_empresa" target="_blank" rel="noopener noreferrer"><i
+            class="fab fa-linkedin-in"></i></a></li>
+    </ul>
+    <p class="copyright">Groupe CAT Argentina © 2025. Todos los derechos reservados.</p>
+
+    <div class="footer-info">
+      <p>Av. Olivos 3682, Tortuguitas, Buenos Aires, Argentina</p>
+      <p><a href="tel:+543512467581">+54 351 246-7581</a></p>
+      <p><a href="mailto:info@groupecat.com.ar">info@groupecat.com.ar</a></p>
+    </div>
+  </footer>
+
+
+  <script>
+    const map = L.map('map').setView([-38.4161, -63.6167], 4); // Centrado en Argentina
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 10,
+      attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+    // Marcadores de Argentina
+    const marker_ar1 = L.marker([-34.6037, -58.3816]).addTo(map); // Buenos Aires
+    marker_ar1.bindPopup('<b>Argentina</b><br>Sede Central - Buenos Aires.').openPopup(); // Solo este se abre al inicio
+
+    const marker_ar2 = L.marker([-31.4167, -64.1833]).addTo(map); // CAT Cordoba (Aproximado)
+    marker_ar2.bindPopup('<b>CAT Cordoba</b>');
+
+    // Otros marcadores
+    const marker1 = L.marker([48.3333, 19.2500]).addTo(map); // CAT KRZYWA (Aproximado)
+    marker1.bindPopup('<b>CAT KRZYWA</b>');
+
+    const marker3 = L.marker([40.4833, -3.5500]).addTo(map); // CAT San Fernando de Henares (SEDE CENTRAL LV) (Aproximado)
+    marker3.bindPopup('<b>CAT San Fernando de Henares (SEDE CENTRAL LV)</b>');
+
+    const marker4 = L.marker([49.4167, 2.5000]).addTo(map); // CAT Estrées-Saint-Denis (Aproximado)
+    marker4.bindPopup('<b>CAT Estrées-Saint-Denis</b>');
+
+    const marker5 = L.marker([45.7667, 3.3333]).addTo(map); // CAT Vertaizon (Aproximado)
+    marker5.bindPopup('<b>CAT Vertaizon</b>');
+
+    const marker6 = L.marker([41.9000, 12.5000]).addTo(map); // CAT Rome (Aproximado)
+    marker6.bindPopup('<b>CAT Rome</b>');
+
+    const marker7 = L.marker([44.3000, 8.4833]).addTo(map); // CAT Savona (Aproximado)
+    marker7.bindPopup('<b>CAT Savona</b>');
+
+    const marker8 = L.marker([45.3167, 8.4167]).addTo(map); // CAT Vercelli (Aproximado)
+    marker8.bindPopup('<b>CAT Vercelli</b>');
+
+    const marker9 = L.marker([42.1167, 11.7833]).addTo(map); // CAT Civitavecchia (Aproximado)
+    marker9.bindPopup('<b>CAT Civitavecchia</b>');
+
+    const marker10 = L.marker([43.5500, 10.3167]).addTo(map); // CAT Livorno (Aproximado)
+    marker10.bindPopup('<b>CAT Livorno</b>');
+
+    const marker11 = L.marker([45.8000, 15.9667]).addTo(map); // CAT Zagreb (Aproximado)
+    marker11.bindPopup('<b>CAT Zagreb</b>');
+
+    const marker12 = L.marker([38.9833, -1.8500]).addTo(map); // CAT Albacete (Aproximado)
+    marker12.bindPopup('<b>CAT Albacete</b>');
+
+    const marker13 = L.marker([40.4833, -3.3667]).addTo(map); // CAT Alcalá de Henares (Aproximado)
+    marker13.bindPopup('<b>CAT Alcalá de Henares</b>');
+
+    const marker14 = L.marker([38.3500, -0.4833]).addTo(map); // CAT Alicante (Aproximado)
+    marker14.bindPopup('<b>CAT Alicante</b>');
+
+    const marker15 = L.marker([43.4167, -5.8500]).addTo(map); // CAT Cayés Llanera (Aproximado)
+    marker15.bindPopup('<b>CAT Cayés Llanera</b>');
+
+    const marker16 = L.marker([40.6500, -4.6833]).addTo(map); // CAT Ávila (Aproximado)
+    marker16.bindPopup('<b>CAT Ávila</b>');
+
+    const marker17 = L.marker([40.4667, -3.5833]).addTo(map); // CAT Barajas (Aproximado)
+    marker17.bindPopup('<b>CAT Barajas</b>');
+
+    const marker18 = L.marker([41.5500, 2.1000]).addTo(map); // CAT Sabadell (Aproximado)
+    marker18.bindPopup('<b>CAT Sabadell</b>');
+
+    const marker19 = L.marker([42.3500, -3.7000]).addTo(map); // CAT Burgos (Aproximado)
+    marker19.bindPopup('<b>CAT Burgos</b>');
+
+    const marker20 = L.marker([38.9833, -3.9333]).addTo(map); // CAT Ciudad Real (Aproximado)
+    marker20.bindPopup('<b>CAT Ciudad Real</b>');
+
+    const marker21 = L.marker([48.8667, 2.3333]).addTo(map); // Groupe CAT Communication (Aproximado)
+    marker21.bindPopup('<b>Groupe CAT Communication</b>');
+
+    // Menú hamburguesa
+    document.getElementById('navbar-toggle').addEventListener('click', function () {
+      this.classList.toggle('open');
+      document.getElementById('navbar-menu').classList.toggle('active');
+    });
+  </script>
+</body>
+
+</html>

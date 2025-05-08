@@ -72,6 +72,24 @@ const swiper = new Swiper('.mySwiper', {
     }
   }
 });
+document.addEventListener("DOMContentLoaded", function () {
+  const toggleBtn = document.querySelector(".navbar-toggle");
+  const navMenu = document.querySelector(".navbar-nav");
+
+  toggleBtn.addEventListener("click", () => {
+    navMenu.classList.toggle("active");
+    toggleBtn.classList.toggle("open");
+  });
+});
+
+const map = L.map('map', {
+  minZoom: 2 // Por ejemplo, limita el zoom out al nivel 2
+}).setView([-38.4161, -63.6167], 4);
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  maxZoom: 10,
+  attribution: '© OpenStreetMap contributors'
+}).addTo(map);
 
 
 
