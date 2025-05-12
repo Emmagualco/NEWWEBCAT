@@ -37,7 +37,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 80px;
+  height: 90px;
   /* Altura uniforme */
 }
 
@@ -53,7 +53,7 @@ header {
   display: flex;
   align-items: center;
   list-style: none;
-  gap: 30px;
+  gap: 20px;
   height: 100%;
   /* asegura que ocupe la misma altura que el navbar */
 }
@@ -69,15 +69,19 @@ header {
   display: flex;
   align-items: center;
   height: 100%;
-  padding: 0 16px;
+ padding: 10px;
   color: #003057;
   text-decoration: none;
-  font-weight: 600;
+  font-weight: bold;
+  font-weight: 800;
   font-size: 16px;
   transition: background 0.3s;
 }
 
-.navbar-nav li a:hover,
+.navbar-nav li a:hover {
+  background: #0076a3;
+  color: white;
+}
 .navbar-nav li a.active {
   background-color: #0076a3;
   color: white;
@@ -91,13 +95,14 @@ header {
   position: absolute;
   top: 100%;
   left: 0;
-  background-color: #ffffff;
+  background: white;
   min-width: 200px;
   z-index: 999;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 6px rgba(0,0,0,.1);
 }
 
 .dropdown-menu li a {
+   display: block;
   padding: 10px 15px;
   font-weight: 400;
   color: #333333;
