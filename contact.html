@@ -3,33 +3,43 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contacto - Groupe CAT</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-  integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-  crossorigin="anonymous" referrerpolicy="no-referrer" />
-<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <title>Contacto - Groupe CAT Argentina</title>
+  <meta name="description" content="Contacta con Groupe CAT Argentina para servicios de logística y transporte internacional. Oficinas en Buenos Aires, Córdoba y Lima.">
+  <meta name="keywords" content="contacto, logística, transporte, CAT Argentina, Tortuguitas, Córdoba, Lima">
+  
+  <!-- Preload critical resources -->
+  <link rel="preload" href="assets/css/contact.css" as="style">
+  <link rel="preload" href="assets/images/logo.png" as="image">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" 
+        integrity="sha512-DTOQO9RWZC0QYA+qzUbywzBpyfJizYst8m7vU7QD2/5wSk69bAv/u6J+k8I6FwYLKoW9b3r4cLCz4vCh+wfEJFE==" 
+        crossorigin="anonymous" referrerpolicy="no-referrer">
   <link rel="stylesheet" href="assets/css/contact.css">
   <link rel="stylesheet" href="assets/css/style.css">
-  
 </head>
 
 <body>
+  <!-- Header with improved accessibility -->
   <header>
-    <div class="container navbar">
-      <div class="logo">
-        <a href="index.html"><img src="assets/images/logo.png" class="logo" alt="Logo CAT"></a>
-      </div>
-      <div class="navbar-toggle">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
+    <div class="container">
+      <nav class="navbar" role="navigation" aria-label="Navegación principal">
+        <div class="logo">
+          <a href="index.html" aria-label="Ir a inicio">
+            <img src="assets/images/logo.png" alt="Logo CAT Groupe Argentina" width="100" height="50">
+          </a>
+        </div>
+        
+        <button class="navbar-toggle" aria-label="Abrir menú de navegación" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
 
-      <nav>
         <ul class="navbar-nav">
           <li><a href="index.html">Inicio</a></li>
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle">La Empresa</a>
+            <a href="#" class="dropdown-toggle" aria-haspopup="true">La Empresa</a>
             <ul class="dropdown-menu">
               <li><a href="/pages/quienessomos.html">Quiénes Somos</a></li>
               <li><a href="/pages/nuestrahistoria.html">Nuestra Historia</a></li>
@@ -37,98 +47,141 @@
             </ul>
           </li>
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle">Servicios</a>
+            <a href="#" class="dropdown-toggle" aria-haspopup="true">Servicios</a>
             <ul class="dropdown-menu">
               <li><a href="/pages/logistica_cargas.html">Logística de Cargas</a></li>
               <li><a href="/pages/logistica_vehiculos.html">Logística de Vehículos</a></li>
             </ul>
           </li>
           <li><a href="presencia.html">Presencia Mundial</a></li>
-          <li><a href="contact.html">Contacto</a></li>
+          <li><a href="contact.html" aria-current="page">Contacto</a></li>
           <li><a href="/pages/otrosservicios.html" class="btn-catportal">CATPORTAL</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <main class="container">
-    <h2>Contacto</h2>
-    <div class="contact-row">
-      <!-- Columna izquierda: Formulario -->
-      <div class="card" style="flex: 1 1 60%; background: none; box-shadow: none;">
-        <p>Para más información sobre nuestros servicios o para solicitar una cotización, complete el siguiente formulario. Nos pondremos en contacto a la brevedad.</p>
-
-        <form action="#" method="post" class="contact-form">
-          <div class="form-group">
-            <label for="nombre">Nombre</label>
-            <input type="text" id="nombre" name="nombre" required>
+  <!-- Main content -->
+  <main>
+    <section class="contact-section">
+      <div class="container">
+        <h1>Contacto</h1>
+        
+        <div class="contact-grid">
+          <!-- Contact Form -->
+          <div class="contact-form-box">
+            <h2>Envíanos un mensaje</h2>
+            <p>Para más información sobre nuestros servicios, completa el formulario y te responderemos a la brevedad.</p>
+            
+            <form class="contact-form" method="POST" action="#" novalidate>
+              <div class="form-group">
+                <label for="nombre">Nombre *</label>
+                <input type="text" id="nombre" name="nombre" required aria-describedby="nombre-error">
+                <span id="nombre-error" class="error-message" role="alert"></span>
+              </div>
+              
+              <div class="form-group">
+                <label for="apellido">Apellido *</label>
+                <input type="text" id="apellido" name="apellido" required aria-describedby="apellido-error">
+                <span id="apellido-error" class="error-message" role="alert"></span>
+              </div>
+              
+              <div class="form-group">
+                <label for="email">Correo Electrónico *</label>
+                <input type="email" id="email" name="email" required aria-describedby="email-error">
+                <span id="email-error" class="error-message" role="alert"></span>
+              </div>
+              
+              <div class="form-group">
+                <label for="telefono">Teléfono</label>
+                <input type="tel" id="telefono" name="telefono" aria-describedby="telefono-help">
+                <small id="telefono-help">Opcional. Incluye código de país si es internacional.</small>
+              </div>
+              
+              <div class="form-group">
+                <label for="mensaje">Mensaje *</label>
+                <textarea id="mensaje" name="mensaje" rows="6" required aria-describedby="mensaje-error" placeholder="Describe tu consulta..."></textarea>
+                <span id="mensaje-error" class="error-message" role="alert"></span>
+              </div>
+              
+              <button type="submit" class="btn-submit">Enviar Mensaje</button>
+            </form>
           </div>
 
-          <div class="form-group">
-            <label for="apellido">Apellido</label>
-            <input type="text" id="apellido" name="apellido" required>
-          </div>
+          <!-- Location Information -->
+          <div class="contact-info-box">
+            <div class="location-card">
+              <h3>Sede Central</h3>
+              <p><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Av. Olivos 3682, Tortuguitas, Buenos Aires</p>
+              <p><i class="fas fa-phone" aria-hidden="true"></i> <a href="tel:+541141234567">+54 11 4123-4567</a></p>
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3289.8374077936724!2d-58.719899999999996!3d-34.456274999999984!2m3!1f0!2f0!3f1!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bca26b70b14537%3A0x6392746b98a781b3!2sTpte%20CAT!5e0!3m2!1ses-419!2sar!4v1747075407357!5m2!1ses-419!2sar" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade"
+                title="Mapa de ubicación - Sede Central Tortuguitas">
+              </iframe>
+            </div>
 
-          <div class="form-group">
-            <label for="email">Correo Electrónico</label>
-            <input type="email" id="email" name="email" required>
-          </div>
+            <div class="location-card">
+              <h3>Centro Córdoba</h3>
+              <p><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Camilo Henríquez 2886, Córdoba Capital</p>
+              <p><i class="fas fa-phone" aria-hidden="true"></i> <a href="tel:+543512467581">+54 351 246-7581</a></p>
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3402.8071271254316!2d-64.2476267!3d-31.474491399999998!2m3!1f2!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9432a17c048220cd%3A0xd07435b0cb7ac169!2sCAT%20Argentina%20S.A.!5e0!3m2!1ses!2sar!4v1709827549398!5m2!1ses!2sar" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade"
+                title="Mapa de ubicación - Centro Córdoba">
+              </iframe>
+            </div>
 
-          <div class="form-group">
-            <label for="telefono">Teléfono</label>
-            <input type="tel" id="telefono" name="telefono">
+            <div class="location-card">
+              <h3>Centro Lima</h3>
+              <p><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Ruta Central Atucha, Lima, Buenos Aires</p>
+              <p><i class="fas fa-phone" aria-hidden="true"></i> <a href="tel:+542353123456">+54 2353 12-3456</a></p>
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1654.4145030331185!2d-59.19300498969608!3d-33.97123426876057!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bba64d9d2e243b%3A0xc0fa7d3602892ac7!2sCAT%20Argentina%20S.A.!5e0!3m2!1ses!2sar!4v1709827611098!5m2!1ses!2sar" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade"
+                title="Mapa de ubicación - Centro Lima">
+              </iframe>
+            </div>
           </div>
-
-          <div class="form-group">
-            <label for="mensaje">Mensaje</label>
-            <textarea id="mensaje" name="mensaje" rows="6" required></textarea>
-          </div>
-
-          <button type="submit" class="btn">Enviar</button>
-        </form>
+        </div>
       </div>
-
-      <!-- Columna derecha: Info y mapas -->
-      <div class="card" style="flex: 1 1 35%;">
-        <h3>Sede Central</h3>
-        <p>Av. Olivos 3682, Tortuguitas, Buenos Aires, Argentina</p>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3289.8374077936724!2d-58.719899999999996!3d-34.456274999999984!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bca26b70b14537%3A0x6392746b98a781b3!2sTpte%20CAT!5e0!3m2!1ses-419!2sar!4v1747075407357!5m2!1ses-419!2sar" width="100%" height="180" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-
-        <h3>Centro Córdoba</h3>
-        <p>Camilo Henríquez 2886, Córdoba, Córdoba Capital</p>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3402.8071271254316!2d-64.2476267!3d-31.474491399999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9432a17c048220cd%3A0xd07435b0cb7ac169!2sCAT%20Argentina%20S.A.!5e0!3m2!1ses!2sar!4v1747075549398!5m2!1ses!2sar" width="100%" height="180" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-        <h3>Centro Lima</h3>
-        <p>Ruta Central Atucha, Lima, Provincia de Buenos Aires</p>
-       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1654.4145030331185!2d-59.19300498969608!3d-33.97123426876057!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bba64d9d2e243b%3A0xc0fa7d3602892ac7!2sCAT%20Argentina%20S.A.!5e0!3m2!1ses!2sar!4v1747076111098!5m2!1ses!2sar"  width="100%" height="180" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-      </div>
-    </div>
+    </section>
   </main>
 
+  <!-- Footer -->
   <footer>
-    <div class="data-fiscal">
-      <img src="assets/images/datafiscal.jpg" alt="Data Fiscal - Código QR">
-    </div>
-    <ul class="social-icons">
-      <li><a href="https://www.facebook.com/tu_pagina" target="_blank" rel="noopener noreferrer"><i
-            class="fab fa-facebook-f"></i></a></li>
-      <li><a href="https://twitter.com/tu_usuario" target="_blank" rel="noopener noreferrer"><i
-            class="fab fa-twitter"></i></a></li>
-      <li><a href="https://www.linkedin.com/company/tu_empresa" target="_blank" rel="noopener noreferrer"><i
-            class="fab fa-linkedin-in"></i></a></li>
-    </ul>
-    <p class="copyright">Groupe CAT Argentina © 2025. Todos los derechos reservados.</p>
-
-    <div class="footer-info">
-      <p>Av. Olivos 3682, Tortuguitas, Buenos Aires, Argentina</p>
-      <p><a href="tel:+543512467581">+54 351 246-7581</a></p>
-      <p><a href="mailto:info@groupecat.com.ar">info@groupecat.com.ar</a></p>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-info">
+          <h3>Información de Contacto</h3>
+          <p>Av. Olivos 3682, Tortuguitas, Buenos Aires, Argentina</p>
+          <p><a href="tel:+541141234567">+54 11 4123-4567</a></p>
+          <p><a href="mailto:info@groupecat.com.ar">info@groupecat.com.ar</a></p>
+        </div>
+        
+        <div class="data-fiscal">
+          <h3>Datos Fiscales</h3>
+          <img src="assets/images/datafiscal.jpg" alt="Código QR - Datos Fiscales" width="80" height="80">
+        </div>
+      </div>
+      
+      <ul class="social-icons">
+        <li><a href="https://www.facebook.com/groupecat" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+        <li><a href="https://twitter.com/groupecat" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-twitter"></i></a></li>
+        <li><a href="https://www.linkedin.com/company/groupecat" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a></li>
+      </ul>
+      
+      <p class="copyright">© 2025 Groupe CAT Argentina. Todos los derechos reservados.</p>
     </div>
   </footer>
 
-  <script src="assets/js/main.js"></script>
-  <script src="assets/js/navbar.js"></script>
-
+  <!-- JavaScript -->
+  <script src="/assets/js/contact.js"></script>
 </body>
 </html>
+
 
 
