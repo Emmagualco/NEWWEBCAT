@@ -1,0 +1,114 @@
+.page-title {
+  width: 100%;
+  background: linear-gradient(to right, #e0f7ff, #ffffff);
+  padding: 60px 0 40px;
+  text-align: center;
+  position: relative;
+}
+
+.page-title h2 {
+  color: #003057;
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin: 0 auto;
+  line-height: 1.2;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 14px;
+}
+
+.page-title h2 span {
+  position: relative;
+}
+
+.page-title h2 span::after {
+  content: '';
+  position: absolute;
+  width: 70%;
+  height: 4px;
+  background-color: #00a7e1;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 3px;
+}
+
+@media (max-width: 768px) {
+  .page-title {
+    padding: 40px 0 30px;
+  }
+
+  .page-title h2 {
+    font-size: 2rem;
+  }
+}
+
+.services-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 2rem 0;
+}
+
+.service-card {
+  background-color: #fff;
+  border-radius: 12px;
+  text-align: center;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.service-card img {
+  max-width: 90px;
+  margin-bottom: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.service-card h3 {
+  font-size: 1.3rem;
+  color: #002c5f;
+  margin-bottom: 0.6rem;
+}
+
+.service-card p {
+  font-size: 1rem;
+  margin: 0 0 1.2rem 0;
+  color: #444;
+  flex-grow: 1;
+}
+
+/* BOTÓN INGRESAR */
+.service-card .btn-ingresar {
+  background-color: #003366;
+  color: #fff !important;
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  margin-top: auto;
+  box-shadow: 0 4px 8px rgba(0, 51, 102, 0.3);
+}
+
+.service-card .btn-ingresar:hover,
+.service-card .btn-ingresar:focus {
+  background-color: #00509e;
+  box-shadow: 0 6px 12px rgba(0, 80, 158, 0.6);
+  outline: none;
+  text-decoration: none;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+

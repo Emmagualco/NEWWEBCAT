@@ -217,48 +217,6 @@ header {
   border-radius: 5px;
 }
 
-/* Footer */
-footer {
-  background: #02142b;
-  color: white;
-  padding: 2rem 0;
-  text-align: center;
-}
-
-.footer-content {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  margin-bottom: 2rem;
-}
-
-.footer-info p {
-  margin-bottom: 0.5rem;
-}
-
-.footer-info a {
-  color: #00a7e1;
-  text-decoration: none;
-}
-
-.social-icons {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  list-style: none;
-  margin-bottom: 1rem;
-}
-
-.social-icons a {
-  color: #00a7e1;
-  font-size: 1.2rem;
-  transition: color 0.3s ease;
-}
-
-.social-icons a:hover {
-  color: white;
-}
-
 /* Responsive */
 @media (max-width: 768px) {
   .navbar-nav {
