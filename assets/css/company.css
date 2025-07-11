@@ -1,0 +1,166 @@
+/* Título principal */
+.section-title {
+  text-align: center;
+  color: #003366; /* azul institucional */
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 3px;
+  background-color: #f1c40f; /* dorado */
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+/* Sección "La Compañía" */
+.section-company {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center; /* Cambiado a center para centrar contenido */
+  padding: 60px 20px;
+  background-color: #dfdede;
+  gap: 30px;
+  width: 100%; /* Que ocupe todo el ancho */
+  margin: 0; /* Sin centrado automático */
+}
+
+.section-company .text-content {
+  flex: 0 0 600px; /* ancho fijo para texto */
+  max-width: 600px;
+  font-size: 1.1rem;
+  color: #333;
+  line-height: 1.7;
+  text-align: center; /* Texto centrado */
+  margin: 0 20px; /* separación lateral opcional */
+}
+
+.section-company .image-content {
+  flex: 0 0 480px; /* ancho fijo para imagen */
+  text-align: center;
+}
+
+
+
+/* Sección "Mensaje del Director" */
+.section-director {
+  padding: 60px 20px;
+  background-color: #dfdede;
+  color: #003366;
+}
+
+.section-director .section-title {
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+.section-director p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.section-director .mensaje-detalle {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin-top: 30px;
+  gap: 30px;
+}
+
+.section-director .mensaje-detalle .fa-ul {
+  flex: 1 1 60%;
+  padding-left: 20px;
+  margin: 0;
+}
+
+.section-director .mensaje-detalle .fa-ul li {
+  margin-bottom: 10px;
+  position: relative;
+  padding-left: 25px;
+  font-size: 1rem;
+  color: #333;
+}
+
+.section-director .mensaje-detalle .fa-ul li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: #003366;
+  font-weight: bold;
+}
+
+.section-director .mensaje-detalle .firma-director {
+  flex: 1 1 30%;
+  text-align: right;
+  font-weight: bold;
+  color: #003366;
+}
+
+.section-director .mensaje-detalle strong {
+  color: #003366;
+}
+
+.section-director .extras {
+  max-width: 900px;
+  margin: 40px auto 0;
+  font-size: 1rem;
+}
+
+.section-director .extras .fa-ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.section-director .extras .fa-ul li {
+  margin-bottom: 10px;
+  padding-left: 25px;
+  position: relative;
+  color: #333;
+}
+
+.section-director .extras .fa-ul li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: #003366;
+  font-weight: bold;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .section-company {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .section-company .text-content {
+    text-align: center;
+  }
+}
+
+
+  .section-company .image-content img {
+    max-height: 220px;
+  }
+
+  .section-director .mensaje-detalle {
+    flex-direction: column;
+  }
+
+  .section-director .mensaje-detalle .firma-director {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+
+
+
