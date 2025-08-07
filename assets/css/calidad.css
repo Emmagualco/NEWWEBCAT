@@ -1,0 +1,54 @@
+.section-mensaje-director {
+    padding: 70px 0;
+    background-color: #f9f9f9;
+  }
+  
+  .section-mensaje-director .section-heading h2 {
+    font-size: 36px;
+    font-weight: 700;
+    color: #002b5c;
+    margin-bottom: 20px;
+  }
+  
+  .section-mensaje-director .section-heading p {
+    font-size: 16px;
+    margin-bottom: 25px;
+  }
+  
+  .section-mensaje-director ul.fa-ul {
+    margin-left: 25px;
+  }
+  
+  .section-mensaje-director ul.fa-ul li {
+    font-size: 15px;
+    margin-bottom: 12px;
+    color: #333;
+  }
+  
+  .section-mensaje-director ul.fa-ul li i {
+    color: #f5c518;
+    margin-right: 8px;
+  }
+  
+  .section-mensaje-director p strong {
+    font-size: 18px;
+    display: block;
+    margin-top: 25px;
+  }
+  
+  .section-mensaje-director .firma-director {
+    margin-top: 30px;
+    text-align: left;
+  }
+  
+  @media (max-width: 767px) {
+    .section-mensaje-director .col-md-6,
+    .section-mensaje-director .col-md-5 {
+      text-align: left;
+    }
+  
+    .section-mensaje-director .firma-director {
+      text-align: center;
+    }
+  }
+  
