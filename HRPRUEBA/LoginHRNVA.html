@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modulo Hoja de Ruta</title>
+    <link rel="stylesheet" href="/HRPRUEBA/css/estilohr.css">
+    <script>
+        function Abrir_iqnet(pagina) {
+            const opciones = "toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, width=800, height=255, top=85, left=200";
+            window.open(pagina, "", opciones);
+        }
+    </script>
+</head>
+<body>
+
+<div class="container">
+    <header class="box-blue">
+        <div class="logo">
+            <img src="logoCATNUEVO.gif" width="100" alt="Logo de CAT">
+        </div>
+        <div class="header-text">
+            <h1>LOGIN</h1>
+            <p>Modulo Hoja de Ruta</p>
+        </div>
+    </header>
+
+    <main class="box-gray">
+        <form name="form2" action="listarhrnva.asp" method="post">
+            <div class="form-group">
+                <label for="txtdni">Ingrese DNI:</label>
+                <input type="number" name="txtdni" id="txtdni" autofocus required>
+            </div>
+            <div class="form-group">
+                <label for="clave">Ingrese CLAVE:</label>
+                <input type="password" name="clave" id="clave" required>
+            </div>
+            <div class="radio-group">
+                <label><input name="tipo" value="MILK RUN" type="radio" required> Milk Run</label>
+                <label><input name="tipo" value="MOVIMIENTOS INTERNOS" type="radio" required> Mov. Internos</label>
+                <label><input name="tipo" value="SPOT" type="radio" required> Spot</label>
+                <label><input name="tipo" value="IVECO" type="radio" required> Iveco</label>
+            </div>
+            <button type="submit" class="boton_2">Ingresar</button>
+        </form>
+    </main>
+</div>
+
+</body>
+</html>

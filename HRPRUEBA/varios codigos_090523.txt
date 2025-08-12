@@ -1,0 +1,323 @@
+<%cad="select * from usuariosxsitio where sitio='" & sitio & "' and usuario='" & usuario & "' and clave='" & clave & "'" 
+set rs4=cn.execute(cad)%>
+<%if rs4.eof=false then%>
+	<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head></head>
+	<body background="fondodepantalla.jpg">
+		<center>
+		Bienvenido &nbsp; <%=rs4("sitio")%>	
+		<br>
+		<form name="form1" action="generarnuevotramo.asp">
+			<%cad="select rstercero from terceros where estado='" & "A" & "' and tipomov='" & "I" & "' order by rstercero"
+			set rs=cn.execute(cad)%>
+			<select name="desde">
+				<%do while rs.eof=false%>
+					if rs("rstercero")<>rs4("sitio") then%>
+						<option><%=rs("rstercero")%></option>
+						<%rs.movenext
+					loop
+				rs.close%>
+			</select>
+			<br>
+			<input type="submit" class="boton_2" value="Generar Nuevo Tramo">
+			</center>
+			<br>
+		</form>	
+		<center>
+		<form name="form2" action="loginhr.html">
+			<center><input type="submit" class="boton_2" value="Ir a la Página Principal"></center>
+		</form>
+		</center>
+	</body>		
+<%else%>
+	<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>  
+		<meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+		<title>Error de Ingreso</title>
+			<link rel="stylesheet" href="estilohr.css">
+		</head>
+		<body background="fondodepantalla.jpg">
+			<br>
+			<br>
+			<br>
+			<br>
+			<div class="box-green">
+				<center><font face="verdana" size="12">No existe combinación Sitio/Password. Por favor, verifique los datos ingresados.</font></center>
+			</div>
+			<br>
+			<br>
+			<div>	
+				<form name="form4" action="nuevotramo.asp">
+					<center><input type="submit" class="boton_2" value="Regresar a la Página Principal"></center>
+				</form>
+			</div> 
+		</body>
+	</html>	
+<%end if%>
+
+
+
+		<%cad="select rstercero from terceros where estado='" & "A" & "' and tipomov='" & "I" & "' order by rstercero"
+		set rs4=cn.execute(cad)%>
+		<select name="sitio">
+			<%do while rs4.eof=false%>
+				<option><%=rs4("rstercero")%></option>
+				<%rs4.movenext
+			loop
+			rs4.close%>
+		</select>
+		<br>
+
+
+
+<%if rs4.eof=false then%>
+	<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head></head>
+	<body background="fondodepantalla.jpg">
+		<center>
+		<font face="verdana" size="9" color="blue">Bienvenido &nbsp; <%=trim(rs4("sitio"))%></font>	
+		<br>
+<hr>
+		<form name="form1" action="generarnuevotramo.asp">
+			<table>
+				<tr>
+					<td>Seleccione Conductor:</td>
+					<td>
+						<%cad1="select distinct c.nombre from conductores c, viajes v, Hojaruta h where h.numviaje=v.numviaje and v.idconductor=c.idconductor and h.destinatario ='" & rs4("sitio") & "'  and h.FechaSalidaRASA is null and h.HoraSalidaRASA is null order by c.Nombre"
+						set rs3=cn.execute(cad1)
+						if rs3.eof=false then%>
+							<select name="conductores">
+								<%do while rs3.eof=false%>
+								<option><%=rs3("nombre")%></option>
+								<%rs3.movenext
+								loop%>
+							</select>
+						<%end if%>
+					</td>
+				</tr>	
+			<table>
+			<tr>
+			<td>Seleccione Nuevo Destino</font></td>
+			<td>
+			<%cad="select rstercero from terceros where estado='" & "A" & "' and tipomov='" & "I" & "'  order by rstercero"
+			set rs=cn.execute(cad)%>
+			<select name="desde">
+				<%do while rs.eof=false
+					if trim(rs("rstercero"))<>trim(rs4("sitio")) then%>
+						<option><%=rs("rstercero")%></option>
+					<%end if
+						rs.movenext
+					loop
+				rs.close%>
+			</select>
+			</td>
+			</tr>
+			</table>
+			<br>
+<br>
+			<input type="submit" class="boton_2" value="Generar Nuevo Tramo">
+			</center>
+			<br>
+		</form>	
+	
+		<center>
+		<form name="form2" action="nuevotramo.asp">
+			<center><input type="submit" class="boton_2" value="Ir a la Página Principal"></center>
+		</form>
+		</center>
+	</body>	
+
+
+
+
+
+
+
+
+//////PROXIMO TRAMO//////
+		<tr>
+			<td><font face="verdana" size="6">Próximo Destino:</font></td>
+			<td>
+				<%cad="select rstercero from terceros where estado='" & "A" & "' and tipomov='" & "I" & "'  order by rstercero"
+				set rs=cn.execute(cad)%>
+				<select name="desde">
+					<%do while rs.eof=false
+						if trim(rs("rstercero"))<>request.form("sitio") then%>
+							<option><%=rs("rstercero")%></option>
+						<%end if
+						rs.movenext
+					loop
+					rs.close%>
+				</select>
+			</td>
+		</tr>
+	
+
+
+
+
+//////PARA GENERAR UN NUEVO TRAMO/////////////////
+rs.CursorType = adOpenKeyset
+rs.LockType = adLockOptimistic
+rs.open "hojaruta",cn
+rs.addnew
+rs("numviaje")=request.querystring("hr")
+rs("remitente")=request.form("desde")
+rs("destinatario")=request.form("hasta")
+rs("origen")="PFCBA"
+rs("destino")="PFCBA"
+rs("plataformaorigen")="CORDOBA"
+rs("plataformadestino")="CORDOBA"
+rs("hojaderuta")=request.querystring("hojaruta")
+rs("tipo")=request.querystring("tipo")
+rs("cliente")=request.form("cliente")
+rs("cargaorigen")=cargad
+rs("remitocargaorigen")=remitocargad
+rs("quellevaorigen")=comoviajas
+rs.update
+rs.close%>
+
+
+
+
+<form name="form1" action="validarllsnuevotramo.asp?sitio=<%=request.form("sitio")%>" method="POST">
+	<table>
+		<tr>
+			<td><font face="verdana" size="6">Seleccione Conductor:</font></td>
+			<td>
+				<%cad="select distinct c.nombre from conductores c, viajes v, Hojaruta h where h.numviaje=v.numviaje and v.idconductor=c.idconductor and h.destinatario ='" & request.form("sitio") & "'  and h.FechaSalidaRASA is null and h.HoraSalidaRASA is null order by c.Nombre"
+				set rs=cn.execute(cad)
+				if rs.eof=false then%>
+					<select name="conductor">
+						<%do while rs.eof=false%>
+							<option><%=rs("nombre")%></option>
+							<%rs.movenext
+						loop%>
+					</select>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">&nbsp;</td>
+		</tr>
+		<tr>
+			<td colspan="2" align="center"><input type="submit" class="boton_3" value="Validar Llegada y Salida"></td>
+		</tr>
+				
+		<tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+		<tr>
+			<td><input type="submit" class="boton_3" value="Aceptar"></td>
+			<td><input type="submit" class="boton_3" value="Regresar"></td>
+		</tr>
+	</table>
+</form>
+	<%else%>
+		<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+		<head>  
+		<meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+		<title>Error de Ingreso</title>
+			<link rel="stylesheet" href="estilohr.css">
+		</head>
+		<body background="fondodepantalla.jpg">
+			<br>
+			<br>
+			<br>
+			<br>
+			<div class="box-green">
+				<center><font face="verdana" size="12">No existen conductors para el Sitio seleccionado.</font></center>
+			</div>
+			<br>
+			<br>
+			<div>	
+				<form name="form4" action="nuevotramo.html">
+					<center><input type="submit" class="boton_2" value="Regresar a la Página Principal"></center>
+				</form>
+			</div> 
+		</body>
+		</html>	
+	<%end if%>
+
+
+
+
+
+
+///////PARA LAS FECHAS Y LAS HORAS
+							<%mes=month(now())%>
+							<%if mes<10 then
+								mes="0" & month(now())
+							end if%>
+							<%dia=day(now())%>
+							<%if dia <10 then
+								dia="0" & day (now())
+							end if%>					
+							<%anio=year(now())%>
+							<%cadenahoy=anio & "-" & mes & "-" & dia%>
+							<%if mes<10 then
+								mes="0"& mes
+							end if%>
+							<%if dia<10 then
+								dia="0"& dia
+							end if%>
+							<%cade=anio & "-" & mes & "-" & dia%>
+							<%horaserver=time()%>
+							<%hora=hour(horaserver)%>
+							<%if hora<10 then
+								hora="0" & hour(horaserver)
+							end if%>
+							<%minu=minute(horaserver)%>
+							<%if minu<10 then
+								minu="0" & minute(horaserver)
+							end if%>
+							<%cadhora=hora & ":" & minu%>
+							<%ampm=(right(horaserver, 2))%>	
+							<%if hour(horaserver)>=12 then
+								dia1=day(now()+2)
+								if dia1<10 then
+									dia1="0"& dia1
+								end if
+
+								mes1=month(now()+2)
+								if mes1<10 then
+									mes1="0"& mes1
+								end if
+								anio1=year(now()+2)
+								caden=anio1 & "-" & mes1 & "-" & dia1
+							else
+								dia1=day(now()+1)
+								if dia1<10 then
+									dia1="0"& dia1
+								end if
+								mes1=month(now()+1)
+								if mes1<10 then
+									mes1="0"& mes1
+								end if
+								anio1=year(now()+1)
+								caden=anio1 & "-" & mes1 & "-" & dia1
+							end if%> 
+										
+							<input name="cumpleanios" step="1" type="date" required min="<%=cadenahoy%>" value="<%=cadenahoy%>">
+
+<td style="text-align: center; font-family: Verdana;" colspan="5" rowspan="1" align="center">Ventana Expedición:&nbsp;<input name="hora1" type="time"  value="<%=cadhora%>"/>&nbsp;<input name="hora2" type="time"  value="<%=cadhora%>"/>&nbsp;&nbsp;&nbsp;Ventana Proveedor:&nbsp;<input name="hora3" type="time"  value="<%=cadhora%>"/>&nbsp;<input name="hora4" type="time"  value="<%=cadhora%>"/>&nbsp;&nbsp;&nbsp;Ventana Recepción:&nbsp;<input name="hora5" type="time"  value="<%=cadhora%>"/>&nbsp;<input name="hora6" type="time"  value="<%=cadhora%>"/></td>	
+
+
+
+
+
+caden="select c.rscliente from cliente c, cecos e where c.idcliente=e.idcliente and e.nombre="' & trim(request.form("ceco")) & "'"
+set rs4=cn.execute(caden)
+cliente=trim(rs4("rscliente"))
+rs4.close
+
+
+
+
+
+//////PARA CERRAR LA HR///////////
+
+<form name="form2" action="cerrarhrnva.asp?hr=<%=numviaje%>&dni=<%=request.form("txtdni")%>&tipo=<%=trim(tipo)%>&clave=<%=request.form("clave")%>" method="POST">
+	<center><a href="cerrarhrnva.asp?hr=<%=numviaje%>&dni=<%=request.form("txtdni")%>&tipo=<%=trim(tipo)%>&clave=<%=request.form("clave")%>"><img style="width: 150px; height: 150px;" src="cerrarhr.jpg"></a></center>
+</form>

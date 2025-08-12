@@ -1,54 +1,159 @@
-.section-mensaje-director {
-    padding: 70px 0;
-    background-color: #f9f9f9;
-  }
-  
-  .section-mensaje-director .section-heading h2 {
-    font-size: 36px;
-    font-weight: 700;
-    color: #002b5c;
-    margin-bottom: 20px;
-  }
-  
-  .section-mensaje-director .section-heading p {
-    font-size: 16px;
-    margin-bottom: 25px;
-  }
-  
-  .section-mensaje-director ul.fa-ul {
-    margin-left: 25px;
-  }
-  
-  .section-mensaje-director ul.fa-ul li {
-    font-size: 15px;
-    margin-bottom: 12px;
-    color: #333;
-  }
-  
-  .section-mensaje-director ul.fa-ul li i {
-    color: #f5c518;
-    margin-right: 8px;
-  }
-  
-  .section-mensaje-director p strong {
-    font-size: 18px;
-    display: block;
-    margin-top: 25px;
-  }
-  
-  .section-mensaje-director .firma-director {
-    margin-top: 30px;
+/* ======================================================
+   ESTILOS ESPECÍFICOS DE LA PÁGINA DE CALIDAD
+   ====================================================== */
+
+/* Título y subtítulo de la página */
+.quality-section h1 {
+    text-align: center;
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: #003057;
+    margin-bottom: 2rem;
+}
+
+/* Sección superior de certificación */
+.quality-header {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.quality-header-info {
+    max-width: 600px;
     text-align: left;
-  }
-  
-  @media (max-width: 767px) {
-    .section-mensaje-director .col-md-6,
-    .section-mensaje-director .col-md-5 {
-      text-align: left;
+}
+
+.quality-header-info h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.quality-header-info p {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.quality-header-cert {
+    text-align: center;
+    padding: 20px;
+}
+
+.quality-header-cert img {
+    max-width: 150px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.quality-header-cert p {
+    margin: 5px 0;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+/* Sección de Certificados (imagen central) */
+.certificates-section {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.certificates-grid img {
+    max-width: 80%;
+    height: auto;
+}
+
+/* Sección de Medio Ambiente (barra horizontal) */
+.environment-section {
+    background-color: #004a99;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    margin-bottom: 40px;
+}
+
+.environment-section p {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin: 0;
+}
+
+/* Sección de Compromiso y Documentos (dos columnas) */
+.commitment-section {
+    padding-bottom: 40px;
+}
+
+.commitment-wrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.commitment-docs,
+.commitment-list {
+    flex: 1;
+}
+
+.commitment-docs h2,
+.commitment-list h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.download-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #00a7e1;
+    color: #fff;
+    border-radius: 5px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+
+.download-link:hover {
+    background-color: #0076a3;
+}
+
+.fa-ul {
+    list-style: none;
+    padding: 0;
+}
+
+.fa-ul li {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 10px;
+    font-size: 1rem;
+}
+
+.fa-li {
+    position: absolute;
+    left: 0;
+    top: 5px;
+    font-size: 1.2rem;
+    color: #00a7e1;
+}
+
+/* ======================================================
+   RESPONSIVE
+   ====================================================== */
+@media (max-width: 992px) {
+    .quality-header,
+    .commitment-wrapper {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
     }
-  
-    .section-mensaje-director .firma-director {
-      text-align: center;
+}
+
+@media (max-width: 768px) {
+    .quality-header-info {
+        max-width: 100%;
+        text-align: center;
     }
-  }
-  
+}

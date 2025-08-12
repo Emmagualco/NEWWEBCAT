@@ -1,0 +1,276 @@
+<html>
+
+<head>
+
+<script language="JavaScript">
+function Abrir_iqnet (pagina) {
+var opciones="toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, width=800, height=255, top=85, left=200";
+window.open(pagina,"",opciones);
+}
+</script>
+
+
+
+
+<style type="text/css">
+
+body{
+	background: url(imagenruta.png) "CCC no-repeat";
+	background-size: cover;
+	background-position:center center;
+	background-attachment: fixed;
+
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-zixe: cover;
+}
+
+  .boton_2{
+    text-decoration: none;
+    padding: 20px;
+    font-family: arial;
+    text-transform: uppercase;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-weight: 200;
+    font-size: 35px;
+    color: #ffffff;
+    background-color: #152b8f;
+    border-radius: 15px;
+    border: 2px solid #0016b0;
+  }
+  .boton_2:hover{
+    color: #9b0e0e;
+    background-color: #bc6355;
+    text-decoration: none;
+  }
+
+  .boton_3{
+    text-decoration: none;
+    padding: 5px;
+    font-family: arial;
+    text-transform: uppercase;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-weight: 50;
+    font-size: 15px;
+    color: #1C2833;
+    background-color:#D4EFDF;
+    border-radius: 15px;
+    border: 2px solid #27AE60;
+  }
+  .boton_3:hover{
+    color: #9b0e0e;
+    background-color:  #AED581;
+    text-decoration: none;
+  }
+
+
+.caja {
+   margin:20px auto 40px auto;	
+   border:1px solid #d9d9d9;
+   height:30px;
+   overflow: hidden;
+   width: 230px;
+   position:relative;
+}
+select {
+   background-color:#FFCE33;
+   border: none;
+   font-size: 20px;
+   font-style: "Century Gothic";
+   height: 30px;
+   padding: 0px;
+   width: 300px;
+   size: 10px;
+}
+select:focus{ outline: none;}
+
+.caja::after{
+	content:"\025be";
+	display:table-cell;
+	padding-top:7px;
+	text-align:center;
+	width:30px;
+	height:30px;
+	background-color:#d9d9d9;
+	position:absolute;
+	top:0;
+	right:0px;	
+	pointer-events: none;
+}
+input[type=radio] { border: 0px; width: 5%; height: 3em; }
+
+  .boton_personalizado{
+    text-decoration: none;
+    padding: 10px;
+    font-weight: 1000;
+    font-size: 40px;
+    color: #ffffff;
+    background-color: #1883ba;
+    border-radius: 6px;
+    border: 2px solid #0016b0;
+  }
+img{
+	border-radius: 50%;
+}
+
+input[type=text]{
+width:30%;
+border:2px solid #aaa;
+border-radius:4px;
+margin:8px 0;
+outline:none;
+padding:8px;
+box-sizing:border-box;
+transition:3s;
+font-size: 33px;
+}
+
+input[type=password]:focus{
+border-color:dodgerBlue;
+box-shadow:0 0 8px 0 dodgerblue;
+}
+
+input[type=password]{
+width:30%;
+border:2px solid #aaa;
+border-radius:4px;
+margin:8px 0;
+outline:none;
+padding:8px;
+box-sizing:border-box;
+transition:3s;
+font-size: 33px;
+}
+
+input[type=text]:focus{
+border-color:dodgerBlue;
+box-shadow:0 0 8px 0 dodgerblue;
+}
+
+
+input[type=number]{
+width:30%;
+border:2px solid #aaa;
+border-radius:4px;
+margin:8px 0;
+outline:none;
+padding:8px;
+box-sizing:border-box;
+transition:3s;
+font-size: 33px;
+}
+
+input[type=number]:focus{
+border-color:dodgerBlue;
+box-shadow:0 0 8px 0 dodgerblue;
+}
+
+#visor_imagenes {
+  text-align: center;
+}
+
+.blanco-violeta {
+  color: #FFFFFF;
+  background-color: #9B59B6;
+}
+
+.blanco-naranja {
+  color: #FFFFFF;
+  background-color: #E67E22;
+}
+</style>
+
+</head>
+
+<br>
+<br>
+<%set cn=server.createobject("ADODB.Connection")
+set rs=server.createobject("ADODB.Recordset")
+set rs1=server.createobject("ADODB.Recordset")
+set rs2=server.createobject("ADODB.Recordset")
+set rs3=server.createobject("ADODB.Recordset")
+set rs4=server.createobject("ADODB.Recordset")
+set rs5=server.createobject("ADODB.Recordset")
+set rs6=server.createobject("ADODB.Recordset")
+cad="Driver={SQL Server};Persist SecurityInfo=True;Description=sqldemo;SERVER=172.24.206.1;UID=sa;PWD=bfg2007;DATABASE=LCARG"
+cn.open(cad)
+mes=month(now)
+if mes<10 then
+	mes="0" & mes
+else
+	mes=mes
+end if
+dia=day(now)
+if dia<10 then
+	dia="0" & dia
+else
+	dia=dia
+end if%>
+<%hoy=mes&"/"&dia&"/"&year(now())%>
+<body background="fondodepantalla.jpg">
+<center>
+<font face="verdana" size="6">Bienvenido <%=request.querystring("usuario")%></font>
+<hr>
+<font face="verdana" size="6">Origen: <%=request.form("sitio")%></font>
+<hr>
+<table border="0">
+		<tr>
+			<%cad="select distinct c.nombre from conductores c, viajes v, Hojaruta h where h.numviaje=v.numviaje and v.idconductor=c.idconductor and h.destinatario ='" & request.form("sitio") & "' and h.Fechallegada is not null and h.Horallegada is not null and h.FechaSalida is not null and h.HoraSalida is not null and h.FechaSalidaRASA is null and h.HoraSalidaRASA is null order by c.Nombre"
+			set rs=cn.execute(cad)
+			if rs.eof=false then%>
+				<td><font face="verdana" size="6">Seleccione Conductor:</font></td>
+				<form name="form1" action="validarllsnuevotramo.asp?sitio=<%=request.form("sitio")%>&usuario=<%=request.querystring("usuario")%>&clave=<%=request.querystring("clave")%>" method="POST">
+				<TD VALIGN="MIDDLE" ALIGN="CENTER">		
+				<select name="conductor">
+					<%do while rs.eof=false%>
+						<option><%=rs("nombre")%></option>
+						<%rs.movenext
+					loop%>
+				</select>
+				</td>
+		</tr>
+		<tr>
+			<td colspan="2">&nbsp;</td>
+		</tr>
+		<tr>
+		<td align="center">
+				<input type="submit" class="boton_3" value="Validar Llegada y Salida">
+			</form>
+		</td>
+
+			<form name="form1" action="loginnuevotramo1.asp?sitio=<%=request.form("sitio")%>&usuario=<%=request.querystring("usuario")%>&clave=<%=request.querystring("clave")%>" method="POST">
+<td align="center">
+				<input type="submit" class="boton_3" value="Regresar">
+			</form>
+		</td>
+		</tr>
+	</table>
+</form>
+	<%else%>
+		<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+		<head>  
+		<meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+		<title>Error de Ingreso</title>
+			<link rel="stylesheet" href="estilohr.css">
+		</head>
+		<body background="fondodepantalla.jpg">
+			<br>
+			<br>
+			<br>
+			<br>
+			<div class="box-green">
+				<center><font face="verdana" size="12">No existen conductores para el Sitio seleccionado.</font></center>
+			</div>
+			<br>
+			<br>
+			<div>	
+				<form name="form1" action="loginnuevotramo1.asp?sitio=<%=request.form("sitio")%>&usuario=<%=request.querystring("usuario")%>&clave=<%=request.querystring("clave")%>" method="POST">
+					<center><input type="submit" class="boton_2" value="Regresar"></center>
+				</form>
+			</div> 
+		</body>
+		</html>	
+	<%end if%>

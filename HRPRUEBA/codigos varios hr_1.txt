@@ -1,0 +1,642 @@
+		<td align="center">
+				<input type="submit" class="boton_3" value="Validar Llegada y Salida">
+			</form>
+		</td>
+
+
+
+				<form name="form1" action="validarllsnuevotramo.asp?usuario=<%=request.form("usuario")%>&clave=<%=request.form("clave")%>" method="POST">		
+				<%do while rs.eof=false%>
+					<tr bgcolor="#AAD2E5">
+					<td width="22%" valign="middle"><font face="verdana" size="3">					
+					<input type="radio" required name="conductores" value="<%=rs("idhojaruta")%>"><%=rs("nombre")%></font>
+					</td>					
+					<td width="8%"><font face="verdana" size="3">
+					<%=rs("fechasalida")%></font>
+					</td width="20%">
+					<td><font face="verdana" size="3">
+					<%=rs("remitente")%></font>
+					</td>
+					<td width="20%"><font face="verdana" size="3">
+					<%=rs("destinatario")%></font>
+					</td>
+					<td width="10%"><font face="verdana" size="3">
+					<%=rs("horallegada")%></font>
+					</td>
+					<td width="11%"><font face="verdana" size="3">
+					<%=rs("horasalida")%></font>
+					</td>
+					<td width="9%">
+					<input type="submit" class="boton_5" value="Validar Llegada y Salida">
+					</td>
+					</tr>
+					<tr>
+					<td colspan="7" bgcolor="#AAD2E5"><hr></td>
+					</tr>
+					<%rs.movenext
+				loop%>	
+			
+</table>
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+////////////////ESTO ESTABA DESPUES DE GENRAR EL NUEVO TRAMO/////////////////
+
+<html>
+
+<head>
+
+<script language="JavaScript">
+function Abrir_iqnet (pagina) {
+var opciones="toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, width=800, height=255, top=85, left=200";
+window.open(pagina,"",opciones);
+}
+</script>
+
+
+
+
+<style type="text/css">
+
+body{
+	background: url(imagenruta.png) "CCC no-repeat;
+	background-size: cover;
+	background-position:center center;
+	background-attachment: fixed;
+
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-zixe: cover;
+}
+
+  .boton_2{
+    text-decoration: none;
+    padding: 20px;
+    font-family: arial;
+    text-transform: uppercase;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-weight: 200;
+    font-size: 35px;
+    color: #ffffff;
+    background-color: #152b8f;
+    border-radius: 15px;
+    border: 2px solid #0016b0;
+  }
+  .boton_2:hover{
+    color: #9b0e0e;
+    background-color: #bc6355;
+    text-decoration: none;
+  }
+
+  .boton_3{
+    text-decoration: none;
+    padding: 5px;
+    font-family: arial;
+    text-transform: uppercase;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-weight: 50;
+    font-size: 15px;
+    color: #1C2833;
+    background-color:#D4EFDF;
+    border-radius: 15px;
+    border: 2px solid #27AE60;
+  }
+  .boton_3:hover{
+    color: #9b0e0e;
+    background-color:  #AED581;
+    text-decoration: none;
+  }
+
+  .boton_4{
+    text-decoration: none;
+    padding: 10px;
+    font-family: arial;
+    text-transform: uppercase;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-weight: 100;
+    font-size: 25px;
+    color: #ffffff;
+    background-color: #152b8f;
+    border-radius: 15px;
+    border: 2px solid #0016b0;
+  }
+  .boton_4:hover{
+    color: #9b0e0e;
+    background-color: #bc6355;
+    text-decoration: none;
+  }
+
+  .boton_5{
+    text-decoration: none;
+    padding: 5px;
+    font-family: arial;
+    text-transform: uppercase;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-weight: 50;
+    font-size: 10px;
+    color: #1C2833;
+    background-color:#D4EFDF;
+    border-radius: 10px;
+    border: 2px solid #27AE60;
+  }
+  .boton_5:hover{
+    color: #9b0e0e;
+    background-color:  #AED581;
+    text-decoration: none;
+  }
+
+
+.caja {
+   margin:20px auto 40px auto;	
+   border:1px solid #d9d9d9;
+   height:30px;
+   overflow: hidden;
+   width: 230px;
+   position:relative;
+}
+select {
+   background-color:#FFCE33;
+   border: none;
+   font-size: 20px;
+   font-face: "Century Gothic"
+   height: 30px;
+   padding: 0px;
+   width: 300px;
+   size: 10px;
+}
+select:focus{ outline: none;}
+
+.caja::after{
+	content:"\025be";
+	display:table-cell;
+	padding-top:7px;
+	text-align:center;
+	width:30px;
+	height:30px;
+	background-color:#d9d9d9;
+	position:absolute;
+	top:0;
+	right:0px;	
+	pointer-events: none;
+}
+
+
+  .boton_personalizado{
+    text-decoration: none;
+    padding: 10px;
+    font-weight: 1000;
+    font-size: 40px;
+    color: #ffffff;
+    background-color: #1883ba;
+    border-radius: 6px;
+    border: 2px solid #0016b0;
+  }
+img{
+	border-radius: 50%;
+}
+
+input[type=radio] { border: 0px; width: 5%; height: 1em; }
+
+
+input[type=text]{
+width:30%;
+border:2px solid #aaa;
+border-radius:4px;
+margin:8px 0;
+outline:none;
+padding:8px;
+box-sizing:border-box;
+transition:3s;
+font-size: 33px;
+}
+
+input[type=password]:focus{
+border-color:dodgerBlue;
+box-shadow:0 0 8px 0 dodgerblue;
+}
+
+input[type=password]{
+width:30%;
+border:2px solid #aaa;
+border-radius:4px;
+margin:8px 0;
+outline:none;
+padding:8px;
+box-sizing:border-box;
+transition:3s;
+font-size: 33px;
+}
+
+input[type=text]:focus{
+border-color:dodgerBlue;
+box-shadow:0 0 8px 0 dodgerblue;
+}
+
+
+input[type=number]{
+width:30%;
+border:2px solid #aaa;
+border-radius:4px;
+margin:8px 0;
+outline:none;
+padding:8px;
+box-sizing:border-box;
+transition:3s;
+font-size: 33px;
+}
+
+input[type=number]:focus{
+border-color:dodgerBlue;
+box-shadow:0 0 8px 0 dodgerblue;
+}
+
+#visor_imagenes {
+  text-align: center;
+}
+
+.blanco-violeta {
+  color: #FFFFFF;
+  background-color: #9B59B6;
+}
+
+.blanco-naranja {
+  color: #FFFFFF;
+  background-color: #E67E22;
+}
+</style>
+
+</head>
+
+<br>
+<br>
+<%set cn=server.createobject("ADODB.Connection")
+set rs=server.createobject("ADODB.Recordset")
+set rs1=server.createobject("ADODB.Recordset")
+set rs2=server.createobject("ADODB.Recordset")
+set rs3=server.createobject("ADODB.Recordset")
+set rs4=server.createobject("ADODB.Recordset")
+set rs5=server.createobject("ADODB.Recordset")
+set rs6=server.createobject("ADODB.Recordset")
+cad="Driver={SQL Server};Persist SecurityInfo=True;Description=sqldemo;SERVER=172.24.206.1;UID=sa;PWD=bfg2007;DATABASE=LCARGPRUEBA"
+cn.open(cad)
+mes=month(now)
+if mes<10 then
+	mes="0" & mes
+else
+	mes=mes
+end if
+dia=day(now)
+if dia<10 then
+	dia="0" & dia
+else
+	dia=dia
+end if%>
+<%hoy=mes&"/"&dia&"/"&year(now())%>
+<body background="fondo_ondulado.jpg">
+<center>
+<font face="verdana" size="6" color="white">Bienvenido <%=request.querystring("usuario")%></font>
+<hr>
+
+
+	
+		<%cad="select distinct h.idhojaruta,h.numviaje,c.nombre, v.fechasalida,h.remitente,h.destinatario,h.horallegada, h.horasalida from conductores c, viajes v, Hojaruta h where h.numviaje=v.numviaje and v.idconductor=c.idconductor and h.HoraLlegada is not null and h.horasalida is not null and h.fechallegadarasa is null and h.horallegadarasa is null and h.FechaSalidaRASA is null and h.HoraSalidaRASA is null order by c.Nombre"
+		set rs=cn.execute(cad)
+			if rs.eof=false then%>
+
+<table border="0" width="100%">
+	<tr bgcolor="white">
+		<td colspan="7" align="center"><font face="verdana" size="5">Seleccione Conductor para validar LLEGADA y SALIDA</font></td>
+	</tr>
+	<tr>
+		<td colspan="6">&nbsp;</td>
+	</tr>
+	<tr bgcolor="#0E6289">
+		<td><font face="verdana" size="4" color="white"><b>Conductor</b></font></td>
+		<td><font face="verdana" size="4" color="white"><b>Fecha</font></b></td>
+		<td><font face="verdana" size="4" color="white"><b>Desde</font></b></td>
+		<td><font face="verdana" size="4" color="white"><b>Hasta</font></b></td>
+		<td><font face="verdana" size="4" color="white"><b>Hora Llegada</b></font></td>
+		<td><font face="verdana" size="4" color="white"><b>Hora Salida</b></font></td>
+		<td><font face="verdana" size="4" color="white"><b>Acción</b></font></td>
+	</tr>
+	<tr>
+					<td colspan="7">&nbsp;</td>
+					</tr>
+
+				<%do while rs.eof=false%>
+					<tr bgcolor="#AAD2E5">
+					<td width="22%" valign="middle"><font face="verdana" size="3">					
+					<%=rs("nombre")%></font>
+					</td>					
+					<td width="8%"><font face="verdana" size="3">
+					<%=rs("fechasalida")%></font>
+					</td width="20%">
+					<td><font face="verdana" size="3">
+					<%=rs("remitente")%></font>
+					</td>
+					<td width="20%"><font face="verdana" size="3">
+					<%=rs("destinatario")%></font>
+					</td>
+					<td width="10%"><font face="verdana" size="3">
+					<%=rs("horallegada")%></font>
+					</td>
+					<td width="11%"><font face="verdana" size="3">
+					<%=rs("horasalida")%></font>
+					</td>
+					<td width="9%">
+					<a href="validarllsnuevotramo.asp?idhr=<%=rs("idhojaruta")%>&usuario=<%=request.querystring("usuario")%>&clave=<%=request.querystring("clave")%>"><input type="button" class="boton_5" value="Validar Llegada y Salida"></a>
+					</td>
+					</tr>
+					<tr>
+					<td colspan="7" bgcolor="#AAD2E5"><hr></td>
+					</tr>
+					<%rs.movenext
+				loop%>	
+			
+</table>
+<table border="0">
+		<tr>
+			<td colspan="2">&nbsp;</td>
+		</tr>
+		<tr>
+			<form name="form3" action="nuevotramo.html">
+				<td align="center">
+				<button class="boton_3" onclick="location.href='nuevotramo.html'">REGRESAR</button>
+			</form>
+		</td>
+		</tr>
+	</table>
+	<%else%>
+		<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+		<head>  
+		<meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+		<title>Sin Conductores para Validación</title>
+			
+		</head>
+		<body background="fondo_ondulado.jpg">
+			<br>
+			<br>
+			<br>
+			<br>
+			<div class="box-green">
+				<center><font face="verdana" size="12">No existen conductores para validar LLEGADA y SALIDA</font></center>
+			</div>
+			<br>
+			<br>
+
+<table border="0">
+<tr>
+<td>
+			<div>
+			<form name="form3" action="nuevotramo.html">
+				<td align="center">
+				<center><button class="boton_4" onclick="location.href='nuevotramo.html'">REGRESAR</button></center>
+			</form>
+			</div> 
+</td>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+			<div>
+			<form name="form5" action="listadeconductores1.asp?usuario=<%=request.querystring("usuario")%>&clave=<%=request.querystring("clave")%>" method="POST">
+				<td align="center">
+				<center><input type="submit" class="boton_4" value="REFRESCAR"></center>
+			</form>
+			</div> 
+</td>
+</tr>
+</table>
+
+		</body>
+		</html>	
+	<%end if%>
+<%end if%>
+usuario=<%=request.querystring("usuario")%>&clave=<%=request.querystring("clave")%>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+///////////////////PARA GENERAR TRAMO EN EL EBOTON
+
+		<%cad="select * from viajes where fechasalida='" & hoy & "' and fechallegada is null"
+		set rs=cn.execute(cad)
+		if rs.eof=false then
+
+			<table border="0" width="100%">
+				<tr bgcolor="white">
+					<td colspan="7" align="center"><font face="verdana" size="5">Seleccione Conductor para validar LLEGADA y SALIDA</font></td>
+				</tr>
+				<tr>
+					<td colspan="6">&nbsp;</td>
+				</tr>
+				<tr bgcolor="#0E6289">
+					<td><font face="verdana" size="4" color="white"><b>Conductor</b></font></td>
+					<td><font face="verdana" size="4" color="white"><b>Fecha</font></b></td>
+					<td><font face="verdana" size="4" color="white"><b>Desde</font></b></td>
+					<td><font face="verdana" size="4" color="white"><b>Hasta</font></b></td>
+					<td><font face="verdana" size="4" color="white"><b>Hora Llegada</b></font></td>
+					<td><font face="verdana" size="4" color="white"><b>Hora Salida</b></font></td>
+					<td><font face="verdana" size="4" color="white"><b>Acción</b></font></td>
+				</tr>
+				<tr>
+					<td colspan="">&nbsp;</td>
+				</tr>
+
+
+
+
+		do while rs.eof=false
+			caden="select nombre from conductores where idconductor=" & rs("idconductor")
+			set rs3=cn.execute(caden)
+			nombre=rs("nombre")
+			cade="select * from hojaruta where numviaje=" & rs("numviaje") & " and fechasalida is not null and fechallegada is not null and fechavalidacion is not null order by idhojaruta desc"
+			set rs1=cn.execute(cade)
+			if rs1.eof=false then%>
+				
+					<tr bgcolor="#AAD2E5">
+						<td width="22%" valign="middle"><font face="verdana" size="3">					
+							<%=nombre%></font>
+						</td>					
+						<td width="8%"><font face="verdana" size="3">
+							<%=rs("fechasalida")%></font>
+						</td width="20%">
+						<td><font face="verdana" size="3">
+							<%=rs1("remitente")%></font>
+						</td>
+						<td width="20%"><font face="verdana" size="3">
+							<%=rs1("destinatario")%></font>
+						</td>
+						<td width="10%"><font face="verdana" size="3">
+							<%=rs1("horallegada")%></font>
+						</td>
+						<td width="11%"><font face="verdana" size="3">
+							<%=rs1("horasalida")%></font>
+						</td>
+						<td width="9%">
+							<%if not isnull(rs1("horavalidacion")) then%>
+								<a href="generarnuevotramo.asp?usuario=<%=request.querystring("usuario")%>&conductor=<%=nombre%>&idhr=<%=rs1("idhojaruta")%>&clave=<%=request.querystring("clave")%>"><input type="button" class="boton_5" value="Generar Nuevo Tramo"></a>
+							<%end if%>
+							<%if isnull(rs1("horavalidacion")) then%>
+								<a href="validarllsnuevotramo.asp?idhr=<%=rs1("idhojaruta")%>&usuario=<%=request.querystring("usuario")%>&clave=<%=request.querystring("clave")%>"><input type="button" class="boton_5" value="Validar Llegada y Salida"></a>
+							<%end if%>
+						</td>
+						</tr>
+						<tr>
+						<td colspan="7" bgcolor="#AAD2E5"><hr></td>
+						</tr>
+						<%rs1.movenext
+					loop%>	
+			
+			</table>
+			<table border="0">
+				<tr>
+					<td colspan="2">&nbsp;</td>
+				</tr>
+				<form name="form3" action="nuevotramo.html">
+					<td align="center">
+					<button class="boton_3" onclick="location.href='nuevotramo.html'">REGRESAR</button>
+				</form>
+				</td>
+				</tr>
+			</table>
+		<%else%>
+
+
+
+
+
+
+
+/////MAS BUENO ESTA ESTE 
+
+
+		<%cad="select * from viajes where fechasalida='" & hoy & "' and fechallegada is null"
+		set rs=cn.execute(cad)
+		if rs.eof=false then%>
+			<table border="0" width="100%">
+				<tr bgcolor="white">
+					<td colspan="7" align="center"><font face="verdana" size="5">Seleccione Conductor para validar LLEGADA y SALIDA</font></td>
+				</tr>
+				<tr>
+					<td colspan="6">&nbsp;</td>
+				</tr>
+				<tr bgcolor="#0E6289">
+					<td><font face="verdana" size="4" color="white"><b>Conductor</b></font></td>
+					<td><font face="verdana" size="4" color="white"><b>Fecha</font></b></td>
+					<td><font face="verdana" size="4" color="white"><b>Desde</font></b></td>
+					<td><font face="verdana" size="4" color="white"><b>Hasta</font></b></td>
+					<td><font face="verdana" size="4" color="white"><b>Hora Llegada</b></font></td>
+					<td><font face="verdana" size="4" color="white"><b>Hora Salida</b></font></td>
+					<td><font face="verdana" size="4" color="white"><b>Acción</b></font></td>
+				</tr>
+				<tr>
+					<td colspan="">&nbsp;</td>
+				</tr>
+				<%do while rs.eof=false
+					caden="select nombre from conductores where idconductor=" & rs("idconductor")
+					set rs3=cn.execute(caden)
+					nombre=trim(rs3("nombre"))
+					cade="select * from hojaruta where numviaje=" & rs("numviaje")  & " order by idhojaruta desc"
+					set rs1=cn.execute(cade)
+					if rs1.eof=false then
+   						if  not isnull(rs1("fechasalida")) and not isnull(rs1("fechallegada")) and not isnull(rs1("fechavalidacion")) then%>
+							<tr bgcolor="#AAD2E5">
+								<td width="22%" valign="middle"><font face="verdana" size="3">					
+									<%=nombre%></font>
+								</td>					
+								<td width="8%"><font face="verdana" size="3">
+									<%=rs("fechasalida")%></font>
+								</td width="20%">
+								<td><font face="verdana" size="3">
+									<%=rs1("remitente")%></font>
+								</td>
+								<td width="20%"><font face="verdana" size="3">
+									<%=rs1("destinatario")%></font>
+								</td>
+								<td width="10%"><font face="verdana" size="3">
+									<%=rs1("horallegada")%></font>
+								</td>
+								<td width="11%"><font face="verdana" size="3">
+									<%=rs1("horasalida")%></font>
+								</td>
+								<td width="9%">
+									<%if not isnull(rs1("horavalidacion")) then%>
+										<a href="generarnuevotramo.asp?usuario=<%=request.querystring("usuario")%>&conductor=<%=nombre%>&idhr=<%=rs1("idhojaruta")%>&clave=<%=request.querystring("clave")%>"><input type="button" class="boton_5" value="Generar Nuevo Tramo"></a>
+									<%end if%>
+									<%if isnull(rs1("horavalidacion")) then%>
+										<a href="validarllsnuevotramo.asp?idhr=<%=rs1("idhojaruta")%>&usuario=<%=request.querystring("usuario")%>&clave=<%=request.querystring("clave")%>"><input type="button" class="boton_5" value="Validar Llegada y Salida"></a>
+									<%end if%>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="7" bgcolor="#AAD2E5"><hr></td>
+							</tr>
+						<%end if
+					end if
+					rs.movenext
+				loop%>	
+			</table>
+			<table border="0">
+				<tr>
+					<td colspan="2">&nbsp;</td>
+				</tr>
+				<form name="form3" action="nuevotramo.html">
+					<td align="center">
+					<button class="boton_3" onclick="location.href='nuevotramo.html'">REGRESAR</button>
+				</form>
+				</td>
+				</tr>
+			</table>
+		<%else%>	
+
+
+

@@ -1,0 +1,27 @@
+<html>
+	<head>
+	</head>
+	<body>
+		<table border="1">
+			<tr>
+				<td rowspan="2">FOTO</td>
+				<td rowspan="2">FOTO</td>
+				<td rowspan="2">T E X T O</td>
+				<td colspan="3">
+					<form name="form3" action="mapa.asp?tipo=<%=request.form("tipo")%> method="POST">
+						<select name="tipo">
+							<option>MOV INT</option>
+							<option>MILK RUN</option>
+							<option>SPOT</option>
+						</select>
+				</td>
+			</tr>
+			<tr>
+				<td><a href="mapa.aspmapa.asp?tipo=<%=request.form("tipo")%>"><img src="valen.jpg"></a></td>
+				<td><img src="valen1.jpg"></td>
+				<td><img src="valen2.jpg"></td>
+			</tr>
+			</form>
+		</table>
+	</body>
+</html>

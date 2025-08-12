@@ -2,30 +2,32 @@
 <html lang="es">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Groupe CAT Argentina</title>
-  <link rel="stylesheet" href="../assets/css/style.css" />
-  <link rel="stylesheet" href="../assets/css/calidad.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-    integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <title>Gestión de Calidad y Medio Ambiente - Groupe CAT Argentina</title>
+<link rel="stylesheet" href="../assets/css/style.css" />
+<link rel="stylesheet" href="../assets/css/calidad.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+ integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 </head>
 
 <body>
-  <!-- NAVBAR -->
-  <header>
+ <header>
     <div class="container navbar">
       <div class="logo">
-        <a href="../index.html"><img src="../assets/images/logo.png" alt="Logo CAT" /></a>
+        <a href="index.html"><img src="assets/images/logo.png" class="logo" alt="Logo CAT"></a>
       </div>
       <div class="navbar-toggle">
-        <span></span><span></span><span></span>
+        <span></span>
+        <span></span>
+        <span></span>
       </div>
+
       <nav>
         <ul class="navbar-nav">
-          <li><a href="../index.html">Inicio</a></li>
+          <li><a href="index.html">Inicio</a></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle">La Empresa</a>
             <ul class="dropdown-menu">
@@ -41,95 +43,81 @@
               <li><a href="/pages/logistica_vehiculos.html">Logística de Vehículos</a></li>
             </ul>
           </li>
-          <li><a href="../presencia.html">Presencia Mundial</a></li>
-          <li><a href="../contact.html">Contacto</a></li>
+          <li><a href="presencia.html">Presencia Mundial</a></li>
+          <li><a href="contact.html">Contacto</a></li>
           <li><a href="/pages/otrosservicios.html" class="btn-catportal">CATPORTAL</a></li>
+
         </ul>
       </nav>
     </div>
   </header>
 
-  <!-- TÍTULO -->
-  <div class="page-title-style01 page-title-negative-top pt-bkg13">
-    <div class="container">
-      <h1>Gestión de Calidad y Medio Ambiente</h1>
-    </div>
-  </div>
-
-  <!-- CONTENIDO CALIDAD -->
-  <div class="page-content">
-    <div class="container row">
-      <div class="col-md-6" style="padding-right:100px;">
-        <div class="custom-heading">
-          <h2>Certificación de Calidad</h2>
+  <main>
+    <section class="quality-section">
+      <div class="container">
+        <h1>Gestión de Calidad y Medio Ambiente</h1>
+        <div class="quality-header">
+          <div class="quality-header-info">
+            <h2>Certificación de Calidad</h2>
+            <p>
+              Gestión logística integral nacional e internacional de: recolección, recepción, manipuleo,
+              almacenaje, acondicionamiento, preparación, pre-entrega, transporte terrestre, aéreo y marítimo
+              de vehículos y cargas en general.
+            </p>
+          </div>
+          <div class="quality-header-cert">
+            <img src="/assets/images/calidad/iram-2.jpg" alt="Certificado IRAM" />
+            <p class="cert-number">Certificado de registro número: 9000-605</p>
+            <p class="cert-validity">Vigencia: 01-11-2024 hasta 01-11-2027</p>
+          </div>
         </div>
-        <p>
-          Gestión logística integral nacional e internacional de: recolección, recepción, manipuleo,
-          almacenaje, acondicionamiento, preparación, pre-entrega, transporte terrestre, aéreo y marítimo
-          de vehículos y cargas en general.
-        </p>
       </div>
-      <div class="col-md-6 animated triggerAnimation" data-animate="zoomIn">
-        <img src="img/iram-2.jpg" alt="Certificado IRAM" width="180" height="78" />
-        <h4>Certificado de registro número: 9000-605</h4>
-        <p>Vigencia: 01-11-2024 hasta 01-11-2027</p>
+    </section>
+
+    <section class="certificates-section">
+      <div class="container">
+        <div class="certificates-grid">
+          <img src="/assets/images/calidad/iso4.jpg" alt="Certificados de Calidad ISO" />
+        </div>
       </div>
-    </div>
-  </div>
+    </section>
 
-  <!-- IMAGEN ISO -->
-  <div class="container">
-    <div class="col-md-12 animated triggerAnimation" data-animate="zoomIn">
-      <img src="img/iso4.jpg" alt="ISO 9001" class="center-block" />
-    </div>
-  </div>
-
-  <!-- SECCIÓN MEDIO AMBIENTE -->
-  <div class="page-content parallax parallax06 mb-70 dark">
-    <div class="container">
-      <div class="statement">
+    <section class="environment-section">
+      <div class="container">
         <p><strong>MEDIO AMBIENTE</strong></p>
       </div>
-    </div>
-  </div>
+    </section>
 
-  <!-- CERTIFICACIONES Y COMPROMISO -->
-  <div class="page-content custom-bkg bkg-light-blue mb-70">
-    <div class="container row">
-      <!-- Documentación -->
-      <div class="col-md-6">
-        <div class="custom-heading">
+    <section class="commitment-section">
+      <div class="container commitment-wrapper">
+        <div class="commitment-docs">
           <h2>Certificaciones de Calidad y Medio Ambiente</h2>
+          <h4>Nuestra empresa cuenta con:</h4>
+          <p><strong>Política de Calidad:</strong> CAT Argentina S.A.</p>
+          <a href="../assets/pdf/politica-calidad-01-rev.03.pdf" class="download-link">
+            <i class="fa fa-file-pdf-o"></i> Descargar PDF
+          </a>
+          <br />
+          <p><strong>Política Ambiental:</strong> CAT Argentina S.A.</p>
+          <a href="../assets/pdf/politica-ambiental-01-Rev.00.pdf" class="download-link">
+            <i class="fa fa-file-pdf-o"></i> Descargar PDF
+          </a>
         </div>
-        <h4>Nuestra empresa cuenta con:</h4>
-        <p><strong>Política de Calidad:</strong> CAT Argentina S.A.</p>
-        <a href="../assets/pdf/politica-calidad-01-rev.03.pdf" class="download-link">
-          <i class="fa fa-file-pdf-o"></i> Descargar PDF
-        </a>
-        <br />
-        <p><strong>Política Ambiental:</strong> CAT Argentina S.A.</p>
-        <a href="../assets/pdf/politica-ambiental-01-Rev.00.pdf" class="download-link">
-          <i class="fa fa-file-pdf-o"></i> Descargar PDF
-        </a>
-      </div>
 
-      <!-- Compromiso -->
-      <div class="col-md-6">
-        <div class="custom-heading">
+        <div class="commitment-list">
           <h2>Compromiso con la Calidad</h2>
+          <ul class="fa-ul">
+            <li><i class="fa fa-li fa-check-circle"></i> Certificación ISO 9001 en todos los mercados.</li>
+            <li><i class="fa fa-li fa-check-circle"></i> Calidad en toda la cadena de suministro.</li>
+            <li><i class="fa fa-li fa-check-circle"></i> Compromiso ambiental para el desarrollo humano.</li>
+            <li><i class="fa fa-li fa-check-circle"></i> Concientización global sobre el cuidado ambiental.</li>
+            <li><i class="fa fa-li fa-check-circle"></i> Impulso hacia una sociedad sustentable.</li>
+          </ul>
         </div>
-        <ul class="fa-ul">
-          <li><i class="fa fa-li fa-check-circle"></i> Certificación ISO 9001 en todos los mercados.</li>
-          <li><i class="fa fa-li fa-check-circle"></i> Calidad en toda la cadena de suministro.</li>
-          <li><i class="fa fa-li fa-check-circle"></i> Compromiso ambiental para el desarrollo humano.</li>
-          <li><i class="fa fa-li fa-check-circle"></i> Concientización global sobre el cuidado ambiental.</li>
-          <li><i class="fa fa-li fa-check-circle"></i> Impulso hacia una sociedad sustentable.</li>
-        </ul>
       </div>
-    </div>
-  </div>
+    </section>
+  </main>
 
-  <!-- FOOTER -->
   <footer>
     <div class="data-fiscal">
       <img src="../assets/images/datafiscal.jpg" alt="Data Fiscal">
@@ -146,14 +134,7 @@
     </div>
   </footer>
 
-
   <script src="assets/js/main.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/js/navbar.js"></script
-
-
-</body>
-
-</html>
+  <script src="https://unpkg.com/swiper/swiper

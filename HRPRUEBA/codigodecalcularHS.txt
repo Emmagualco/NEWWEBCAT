@@ -1,0 +1,233 @@
+RS2.Open "select * from hojaruta where numviaje=286883 order by idhojaruta", CN, adOpenDynamic, adLockOptimistic
+inicio = Trim(RS2("horallegada"))
+Do While RS2.EOF = False
+    If Not IsNull(RS2("horallegada")) And Not IsNull(RS2("horasalida")) Then
+        If Trim(RS2("horasalida")) > inicio Then
+            cadena = Trim(RS2("horasalida"))
+            hora = Mid(cadena, 1, 2)
+            minuto = Mid(cadena, 4, 2)
+    
+            If minuto < "15" Then
+                hora = hora
+                minuto = "00"
+            End If
+            If minuto >= "15" And minuto <= "45" Then
+                hora = hora
+                minuto = "30"
+            End If
+            If minuto > "45" And minuto <= "59" Then
+                hora = hora + 1
+                If hora = 1 Then
+                    hora = "01"
+                End If
+                If hora = 2 Then
+                    hora = "02"
+                End If
+                If hora = 3 Then
+                    hora = "03"
+                End If
+                If hora = 4 Then
+                    hora = "04"
+                End If
+                If hora = 5 Then
+                    hora = "05"
+                End If
+                If hora = 6 Then
+                    hora = "06"
+                End If
+                If hora = 7 Then
+                    hora = "07"
+                End If
+                If hora = 8 Then
+                    hora = "08"
+                End If
+                If hora = 9 Then
+                    hora = "09"
+                End If
+                minuto = "00"
+            End If
+            horadesalida = hora & ":" & minuto
+            cadena = Trim(inicio)
+    
+            hora = Mid(cadena, 1, 2)
+            minuto = Mid(cadena, 4, 2)
+            If minuto < "15" Then
+                hora = hora
+                minuto = "00"
+            End If
+            If minuto >= "15" And minuto <= "45" Then
+                hora = hora
+                minuto = "30"
+            End If
+            If minuto > "45" And minuto <= "59" Then
+                hora = hora + 1
+                If hora = 1 Then
+                    hora = "01"
+                End If
+                If hora = 2 Then
+                    hora = "02"
+                End If
+                If hora = 3 Then
+                    hora = "03"
+                End If
+                If hora = 4 Then
+                    hora = "04"
+                End If
+                If hora = 5 Then
+                    hora = "05"
+                End If
+                If hora = 6 Then
+                    hora = "06"
+                End If
+                If hora = 7 Then
+                    hora = "07"
+                End If
+                If hora = 8 Then
+                    hora = "08"
+                End If
+                If hora = 9 Then
+                    hora = "09"
+                End If
+                minuto = "0"
+            End If
+    
+            horadellegada = hora & ":" & minuto
+            If IsNull(RS2("horasalida")) Or IsNull(RS2("horallegada")) Then
+                     horast = 0
+            Else
+                If horadesalida = "24:00" Then
+                    horadesalida = "00:00"
+                    horast = DateDiff("n", horadellegada, horadesalida) / 60 + 24
+                Else
+                    horast = DateDiff("n", horadellegada, horadesalida) / 60
+                End If
+            End If
+            If horast > 0 Then
+                GrillaHS.AddItem Trim(RS2("horallegada")) & Chr(9) & Trim(RS2("horasalida")) & Chr(9) & Format(horast, "##0.00")
+            Else
+                GrillaHS.AddItem Trim(RS2("horallegada")) & Chr(9) & Trim(RS2("horasalida")) & Chr(9) & 0
+            End If
+            inicio = Trim(horadesalida)
+            fechainicio = RS2("fechasalida")
+            totalhs = totalhs + horast
+            horast = 0
+        Else
+            If RS2("fechasalida") = fechainicio Then
+                horast = 0
+                totalhs = totalhs + horast
+                horadesalida = inicio
+                horadellegada = inicio
+            Else
+                cadena = Trim(RS2("horasalida"))
+                hora = Mid(cadena, 1, 2)
+                minuto = Mid(cadena, 4, 2)
+                If minuto < "15" Then
+                        hora = hora
+                        minuto = "00"
+                End If
+                If minuto >= "15" And minuto <= "45" Then
+                        hora = hora
+                        minuto = "30"
+                End If
+                If minuto > "45" And minuto <= "59" Then
+                        hora = hora + 1
+                    If hora = 1 Then
+                        hora = "01"
+                    End If
+                    If hora = 2 Then
+                        hora = "02"
+                    End If
+                    If hora = 3 Then
+                        hora = "03"
+                    End If
+                    If hora = 4 Then
+                        hora = "04"
+                    End If
+                    If hora = 5 Then
+                        hora = "05"
+                    End If
+                    If hora = 6 Then
+                        hora = "06"
+                    End If
+                    If hora = 7 Then
+                        hora = "07"
+                    End If
+                    If hora = 8 Then
+                        hora = "08"
+                    End If
+                    If hora = 9 Then
+                        hora = "09"
+                    End If
+                        minuto = "00"
+                End If
+                horadesalida = hora & ":" & minuto
+                cadena = Trim(inicio)
+                hora = Mid(cadena, 1, 2)
+                minuto = Mid(cadena, 4, 2)
+                If minuto < 15 Then
+                    hora = hora
+                    minuto = "00"
+                End If
+                If minuto >= "15" And minuto <= "45" Then
+                    hora = hora
+                    minuto = "30"
+                End If
+                If minuto > "45" And minuto <= "59" Then
+                        hora = hora + 1
+                        If hora = 1 Then
+                            hora = "01"
+                        End If
+                        If hora = 2 Then
+                            hora = "02"
+                        End If
+                        If hora = 3 Then
+                            hora = "03"
+                        End If
+                        If hora = 4 Then
+                            hora = "04"
+                        End If
+                        If hora = 5 Then
+                            hora = "05"
+                        End If
+                        If hora = 6 Then
+                            hora = "06"
+                        End If
+                        If hora = 7 Then
+                            hora = "07"
+                        End If
+                        If hora = 8 Then
+                            hora = "08"
+                        End If
+                        If hora = 9 Then
+                            hora = "09"
+                        End If
+                        minuto = "00"
+                End If
+                horadellegada = hora & ":" & minuto
+            End If
+            If IsNull(RS2("horasalida")) Or IsNull(RS2("horallegada")) Then
+                    horast = 0
+            Else
+                If RS2("fechasalida") <> fechainicio Then
+                    horast = DateDiff("n", horadellegada, horadesalida) / 60 + 24
+                Else
+                    horast = DateDiff("n", horadellegada, horadesalida) / 60
+                End If
+            End If
+            If horast > 0 Then
+    
+                GrillaHS.AddItem RS2("horallegada") & Chr(9) & RS2("horasalida") & Chr(9) & Format(horast, "##0.00")
+            Else
+                GrillaHS.AddItem RS2("horallegada") & Chr(9) & RS2("horasalida") & Chr(9) & 0
+            End If
+            inicio = Trim(horadesalida)
+            fechainicio = RS2("fechasalida")
+            totalhs = totalhs + horast
+            horast = 0
+        End If
+
+    Else
+        GrillaHS.AddItem RS2("horallegada") & Chr(9) & RS2("horasalida") & Chr(9) & "--"
+    End If
+RS2.MoveNext
+Loop

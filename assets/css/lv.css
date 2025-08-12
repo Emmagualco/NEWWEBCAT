@@ -1,0 +1,520 @@
+/* ======================================================
+   RESET Y ESTILOS GENERALES
+   ====================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    line-height: 1.6;
+    background-color: #f5f5f5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+.gallery-section h2 {
+  font-family: 'Arial', sans-serif;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #003366;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+.gallery-section h2::after {
+  content: '';
+  display: block;
+  width: 100px;
+  height: 3px;
+  background-color: #00a0df;
+  margin: 0.4rem auto 0 auto;
+  border-radius: 2px;
+}
+h1, h2, h3 {
+    color: #004a99;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+h1 {
+    font-size: 2rem;
+    text-align: center;
+}
+
+h2 {
+    font-size: 1.5rem;
+}
+
+p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    color: #ffffff;
+    line-height: 1.5;
+}
+
+a {
+    color: #004a99;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover,
+a:focus {
+    color: #002d62;
+    text-decoration: underline;
+    outline: none;
+}
+
+ul {
+    padding-left: 1.5rem;
+    list-style: disc inside;
+}
+
+ul li {
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+/* Imagen principal o fluidas */
+.img-fluid,
+.full-width-img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 2rem;
+    border-radius: 5px;
+    display: block;
+}
+
+.section, .page-content {
+    margin-bottom: 3rem;
+}
+
+
+/* ======================================================
+   NAVEGACIÓN (HEADER)
+   ====================================================== */
+header {
+    background-color: #ffffff;
+    border-bottom: 1px solid #e6e6e6;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 90px;
+    padding: 0 10px;
+}
+
+.logo img {
+    height: 50px;
+    width: auto;
+}
+
+.navbar-nav {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 25px;
+    height: 100%;
+    font-weight: 700;
+}
+
+.navbar-nav li {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    position: relative;
+}
+
+.navbar-nav li a {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 10px 12px;
+    color: #003057;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 16px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar-nav li a:hover,
+.navbar-nav li a.active {
+    background-color: #0076a3;
+    color: #fff;
+    outline-offset: 2px;
+    outline: 2px solid #005f82;
+}
+
+.navbar-nav li a.btn-catportal {
+    background-color: #003366;
+    color: #fff !important;
+    padding: 8px 20px;
+    border-radius: 6px;
+    font-weight: 700;
+    line-height: 1.2;
+    height: auto;
+    transition: background-color 0.3s ease;
+}
+
+.navbar-nav li a.btn-catportal:hover,
+.navbar-nav li a.btn-catportal:focus {
+    background-color: #00509e;
+    outline: none;
+}
+
+/* Submenús desplegables */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #fff;
+    min-width: 220px;
+    z-index: 999;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    border-radius: 6px;
+    padding: 8px 0;
+}
+
+.dropdown-menu li a {
+    display: block;
+    padding: 10px 20px;
+    font-weight: 400;
+    color: #003057;
+    white-space: nowrap;
+    transition: background-color 0.3s ease;
+    border-radius: 4px;
+}
+
+.dropdown-menu li a:hover,
+.dropdown-menu li a:focus {
+    background-color: #e6f4fb;
+    color: #0076a3;
+}
+
+.navbar-nav li.dropdown:hover > .dropdown-menu,
+.navbar-nav li.dropdown:focus-within > .dropdown-menu {
+    display: block;
+}
+
+
+/* ======================================================
+   TÍTULOS DE SECCIÓN
+   ====================================================== */
+.page-title, .section-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: #003057;
+    line-height: 1.2;
+}
+
+.page-title span, .section-title span {
+    display: inline-block;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.page-title span::after, .section-title span::after {
+    content: '';
+    position: absolute;
+    width: 60%;
+    height: 4px;
+    background-color: #00a7e1;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 3px;
+}
+
+
+/* ======================================================
+   CONTENEDOR DE SERVICIOS
+   ====================================================== */
+.service-presentation {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-bottom: 3rem;
+}
+
+.service-info, .service-image {
+    flex: 1 1 45%;
+}
+
+.service-info h2 {
+    color: #003057;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+.service-info ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.service-info ul li {
+    font-size: 1.1rem;
+    color: #333333;
+    margin-bottom: 15px;
+    position: relative;
+    padding-left: 25px;
+}
+
+.service-info ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 8px;
+    background-color: #00a7e1;
+    border-radius: 50%;
+}
+
+
+/* ======================================================
+   BLOQUE COMPARATIVO (PDF DESCARGA)
+   ====================================================== */
+.pdf-descarga {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+}
+
+.pdf-descarga .img-bloque {
+    flex: 1 1 50%;
+    display: flex;
+    justify-content: center;
+}
+
+.pdf-descarga .img-bloque img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+.pdf-descarga .texto-bloque {
+    flex: 1 1 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.pdf-descarga .texto-bloque h3 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #003366;
+}
+
+.pdf-descarga .texto-bloque p {
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+}
+
+
+/* ======================================================
+   GALERÍA DE IMÁGENES
+   ====================================================== */
+.grid-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    justify-items: center;
+    margin-bottom: 4rem;
+}
+
+.grid-gallery figure {
+    margin: 0;
+}
+
+.grid-gallery img {
+    width: 100%;
+    height: 250px; /* Altura fija para que las imágenes tengan el mismo tamaño */
+    max-width: 100%;
+    border-radius: 6px;
+    object-fit: cover; /* Asegura que la imagen no se distorsione */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: block;
+}
+
+.grid-gallery img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+
+/* ======================================================
+   TARJETAS DE "NUESTROS SERVICIOS"
+   ====================================================== */
+.servicios-card {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.servicios-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+.servicios-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.servicios-card h3 {
+    font-family: 'Arial', sans-serif;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #003366;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.servicios-card h3::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 3px;
+    background-color: #00a0df;
+    margin: 0.4rem auto 0 auto;
+    border-radius: 2px;
+}
+
+.servicios-card p {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    text-align: center;
+    padding: 0 1rem;
+    color: #333;
+}
+
+.servicios-card .btn {
+    margin: 1rem auto 1.5rem auto;
+}
+
+
+/* ======================================================
+   BOTONES GENERALES
+   ====================================================== */
+.btn, .btn-primary {
+    display: inline-block;
+    background-color: #003366;
+    color: #fff;
+    padding: 0.6rem 1.4rem;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border: none;
+}
+
+.btn:hover, .btn-primary:hover {
+    background-color: #002244;
+    transform: translateY(-2px);
+}
+
+
+
+/* ======================================================
+   RESPONSIVE DESIGN
+   ====================================================== */
+@media (max-width: 768px) {
+    .navbar-nav {
+        display: none;
+        position: fixed;
+        top: 90px;
+        right: 0;
+        background: #fff;
+        height: calc(100vh - 90px);
+        width: 250px;
+        flex-direction: column;
+        padding-top: 20px;
+        box-shadow: -4px 0 8px rgba(0,0,0,0.1);
+        z-index: 1100;
+        overflow-y: auto;
+    }
+
+    .navbar-nav.open {
+        display: flex;
+    }
+
+    .navbar-toggle {
+        display: flex;
+    }
+
+    header {
+        padding: 0 10px;
+    }
+
+    .page-title, .section-title {
+        font-size: 2.2rem;
+    }
+    
+    .service-presentation {
+        flex-direction: column;
+    }
+    
+    .service-info, .service-image {
+        flex: 1 1 100%;
+    }
+
+    .pdf-descarga {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .pdf-descarga .texto-bloque,
+    .pdf-descarga .img-bloque {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+
+    .grid-gallery {
+        grid-template-columns: 1fr;
+    }
+    
+    .card {
+        width: 90%;
+        max-width: 450px;
+        flex: none;
+        margin-bottom: 30px;
+    }
+
+
+}

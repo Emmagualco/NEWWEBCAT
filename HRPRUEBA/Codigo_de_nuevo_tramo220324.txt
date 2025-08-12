@@ -1,0 +1,84 @@
+							<%if not isnull(rs2("horasalida")) and not isnull(rs2("horallegada"))then
+								idhr=rs2("idhojaruta")
+								destino=trim(rs2("destinatario"))%>
+								<table width="100%" bgcolor="white" border="0">
+									<tr>
+										<td width="20%"><img src="LogoCATNUEVO.gif"></td>
+										<td width="10%">
+											<a href="cambiodeclave.asp?dni=<%=dni%>&tipo=<%=trim(tipo)%>&clave=<%=request.querystring("clave")%>"><img src="cambioclave.jpg"width="70" height="70"></a>
+										</td>
+										<form name="form10" action="consultainformeshrweb.asp?idhr=<%=rs2("idhojaruta")%>&tipo=<%=trim(tipo)%>&dni=<%=request.querystring("dni")%>&clave=<%=request.querystring("clave")%>" method="POST">					
+											<td width="60%" align="right"><font face="verdana"><b>Desde: <input name="txtdesde" step="1" type="date" value="<%=cadenadesde%>" required>   Hasta: <input name="txthasta" step="1" type="date" value="<%=cadenadesde%>" required></b></font>&nbsp;&nbsp;<input type="submit" class="boton_4" value="Ver Actividad"></td>
+										</form>
+										<td width="20%" align="center">
+											<form name="form2" action="validacerrarhrnva.asp?hr=<%=numviaje%>&dni=<%=request.querystring("dni")%>&tipo=<%=trim(tipo)%>&clave=<%=request.querystring("clave")%>" method="POST">
+												<center><a href="validacerrarhrnva.asp?hr=<%=numviaje%>&dni=<%=request.querystring("dni")%>&tipo=<%=trim(tipo)%>&clave=<%=request.querystring("clave")%>"><img style="width: 70px; height: 50px;" src="cerrarhr.jpg"></a></center>
+											</form>
+										</td>
+									<tr>
+								</table>
+								<br>
+								<br>	
+								<br>
+								<center><font face="verdana" size="20" color="white"><b><u>GENERACI&Oacute;N DE NUEVO TRAMO</u></b></font></center>
+								<br>
+								<br>
+								<br>
+								<br>
+								<br>
+								<font face="verdana" size="12" color="white"><b>Origen:&nbsp;<%=destino%></b></font>
+								<br>
+								<br>
+								<form name="form6" action="generarnuevotramo.asp?idhr=<%=idhr%>&dni=<%=request.querystring("dni")%>&clave=<%=request.querystring("clave")%>&tipo=<%=trim(tipo)%>" method="POST">
+									<table border="0">
+										<tr>
+											<td align="left"><font face="verdana" size="12" color="white"><b>Pr&oacute;ximo Destino:</b></font></td>
+											<td>
+												<%cad="select rstercero from terceros where estado='" & "A" & "' and tipomov='" & "I" & "'  order by rstercero"
+												set rs=cn.execute(cad)%>
+												<select name="destino" required>
+													<%do while rs.eof=false
+														if trim(rs("rstercero"))<>destino then%>
+															<option><%=rs("rstercero")%></option>
+														<%end if
+														rs.movenext
+													loop
+													rs.close%>
+												</select>
+											</td>
+										</tr>
+											<tr><td colspan="2">&nbsp;</td></tr>
+											<tr><td colspan="2">&nbsp;</td></tr>
+											<tr><td align="center" colspan="2"><img src="camionnuevotramo.png" width="250" height="200"></td></tr>
+											<tr><td colspan="2">&nbsp;</td></tr>
+											<tr><td colspan="2">&nbsp;</td></tr>
+											<tr><td align="center" colspan="2"><font face="verdana" size="20" color="white"><b>Contenido actual</b></td></tr>
+											<tr><td align="center" colspan="2">
+											<%if trim(rs2("quellevadestino"))="VACIO"then%>
+												<font face="verdana" size="20" color="white"><b><%=(rs2("quellevadestino"))%></b>
+											<%else%>
+												<font face="verdana" size="20" color="white"><b><%=rs2("cargadestino") & " " & trim(rs2("quellevadestino"))%></b>
+											<%end if%></td>
+										</tr>
+										<tr><td colspan="2">&nbsp;</td></tr>
+										<tr><td colspan="2">&nbsp;</td></tr>
+										<tr>
+											<td colspan="2" align="center">
+												<input type="submit" class="boton_2" value="Generar Nuevo Tramo">
+											</td>
+										</tr>
+										<tr><td colspan="2">&nbsp;</td></tr>
+									</table>
+								</form>
+								<br>
+								<br>
+								<br>
+								<br>
+								<br>	
+								<br>
+								<center>
+								<form name="form2" action="loginhrnva.html" method="POST">
+									<center><a href="loginhrnva.html"><img style="width: 150px; height: 150px;" src="flechaatras.jpg"></a></center>
+								</form>
+								</center>
+							<%end if

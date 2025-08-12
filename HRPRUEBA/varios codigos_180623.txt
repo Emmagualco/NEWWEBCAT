@@ -1,0 +1,338 @@
+RS.Open "select * from viajes where fechallegada is null and web='" & "S" & "'", CN, adOpenDynamic, adLockOptimistic
+Do While RS.EOF = False
+    RS2.Open "select nombre from conductores where idconductor=" & RS.Fields("idconductor"), CN, adOpenDynamic, adLockOptimistic
+    nombre = Trim(RS2.Fields("nombre"))
+    RS2.Close
+    RS2.Open "select patente from medios where idmedio=" & RS.Fields("idmedio"), CN, adOpenDynamic, adLockOptimistic
+    patente = Trim(RS2.Fields("patente"))
+    RS2.Close
+    RS1.Open "select * from hojaruta where numviaje=" & RS.Fields("numviaje") & " order by idhojaruta desc", CN, adOpenDynamic, adLockOptimistic
+    If Not IsNull(RS1.Fields("fechavalidacion")) And Not IsNull(RS1.Fields("horavalidacion")) And Not IsNull(RS1.Fields("fechasalidarasa")) And Not IsNull(RS1.Fields("fechallegadarasa")) Then
+        Gril.AddItem nombre & Chr(9) & patente
+    End If
+    RS1.Close
+    RS.MoveNext
+Loop
+RS.Close
+CN.Close	
+
+
+
+
+
+
+
+	<%cad="select * from viajes where fechallegada is null and web='" & "S" & "'"
+	set rs=cn.execute(cad)
+	do while rs.eof=false
+		cad="select nombre from conductores where idconductor=" & RS("idconductor")
+		set rs2=cn.execute(cad)
+    		nombre = Trim(RS2("nombre"))
+    		RS2.Close
+		cad="select patente from medios where idmedio=" & RS.Fields("idmedio")
+		set rs2=cn.execute(cad)
+    		patente = Trim(RS2("patente"))
+    		RS2.Close
+		encontrado=1%>
+		<table border="0" width="100%">
+			<tr bgcolor="white">
+				<td colspan="3" align="center"><font face="verdana" size="5">Seleccione Conductor para validar LLEGADA y SALIDA</font></td>
+			</tr>
+			<tr>
+				<td colspan="3">&nbsp;</td>
+			</tr>
+			<tr bgcolor="#0E6289">
+				<td><font face="verdana" size="10" color="white"><b>Conductor</b></font></td>
+				<td><font face="verdana" size="10" color="white"><b>Patente</font></b></td>
+				<td align="center"><font face="verdana" size="10" color="white"><b>Acción</b></font></td>
+			</tr>
+			<tr> 
+				<td colspan="3">&nbsp;</td>
+			</tr>
+    			<%cad="select * from hojaruta where numviaje=" & RS("numviaje") & " order by idhojaruta desc"
+			set rs3=cn.executre(cad)
+    			If Not IsNull(RS3("fechavalidacion")) And Not IsNull(RS3("horavalidacion")) And Not IsNull(RS3("fechasalidarasa")) And Not IsNull(RS3("fechallegadarasa")) Then%>
+				<tr bgcolor="#AAD2E5">
+					<td width="60%" valign="middle"><font face="verdana" size="8">					
+						<%=rs("nombre")%></font>
+					</td>					
+					<td width="20%"><font face="verdana" size="8">
+						<%=rs("patente")%></font>
+					</td>
+					<td width="20%">
+						<a href="generaciondenuevotramo.asp?usuario=<%=request.querystring("usuario")%>&conductor=<%=rs("nombre")%>&idhr=<%=rs("idhojaruta")%>&clave=<%=request.querystring("clave")%>"><input type="button" class="boton_3" value="Generar Nuevo Tramo"></a>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="3" bgcolor="#AAD2E5"><hr></td>
+				</tr>
+			<%end if%>		
+		</table>
+	<%end if%>
+
+
+
+/////ESTA ES LA SENTENCIA ORIGINAL PARA TRAER LA HR ACTUAL//////////
+cadena="select numviaje from viajes where idconductor=" & idconductor & " and hojaderuta is not null and fechasalida ='" & hoy & "' and fechallegada is null and web='" & "S" & "' order by numviaje desc"
+
+
+///ESTO ESTABA EN GENERACION DE TRAMOS/////
+		<tr>
+			<td align="right"><font face="verdana" size="6">Seleccione C.C.:</font></td>
+			<td>
+				<%cad="select distinct nombre from cecos where tipomov='" & "I" & "' order by nombre"
+				set rs3=cn.execute(cad)%>
+				<select name="ceco" required>
+					<%do while rs3.eof=false%>
+						<option><%=rs3("nombre")%></option>
+						<%rs3.movenext
+					loop
+					rs3.close%>
+				</select>
+			</td>
+		</tr>
+
+
+
+////////////CAJA DE ENCABEZADO EN CONSULTA LC////////////
+	<div class="box-blue">
+		<center><span
+		style="font-family: Helvetica,Arial,sans-serif; color: rgb(0, 0, 153); font-weight: bold;"><big style="font-weight: bold;"><big style="color: rgb(0, 0, 153);">N° H.R.:&nbsp;<%=request.querystring("numviaje")%></big></center>
+		<div id="segundo"><big style="font-weight: bold;"><big style="color: rgb(0, 0, 153);"><span
+		style="font-family: Helvetica,Arial,sans-serif;">Consulta de Recorridos</span></big></big><br></big></div>
+		<%mes=month(now())%>
+		<%if mes<10 then
+			mes="0" & month(now())
+		end if%>
+		<%dia=day(now())%>
+		<%if dia <10 then
+			dia="0" & day (now())
+		end if%>					
+		<%anio=year(now())%>
+		<%cadenadesde=dia & "/" & mes & "/" & anio%>
+		<%desdecadena=mes & "/" & dia & "/" & anio%>		
+		<big style="font-weight: bold;"><big style="color: rgb(0, 0, 153);"><big><span
+		style="font-family: Helvetica,Arial,sans-serif;">Fecha:&nbsp; <%=cadenadesde%></span></big></big></big>
+	</div>
+
+
+
+
+////////////COLOR EN LA GRILLA DE TABLERO DIARIO
+
+			color1=0
+			color2=0
+			if color1=0 then%>
+				<tr bgcolor="#D5F5E3">
+					<%color1=1
+					color2=0
+			else
+				if color2 =0 then%>
+					<tr bgcolor="#EAF2F8">
+						<%color2=1
+						color1=0
+				end if
+			end if%>
+
+
+////////////SENTENCIA PARA TRAER LOS CONDUCTORES PARA VALIDAR HR EN LA WEB//////////////////
+<%cad="select distinct m.patente,h.horavalidacion,h.idhojaruta,h.numviaje,c.nombre,v.fechasalida,h.remitente,h.destinatario,h.horallegada,h.horasalida from conductores c, viajes v, medios m, Hojaruta h where v.idmedio=m.idmedio and h.numviaje=v.numviaje and v.idconductor=c.idconductor and h.HoraLlegada is not null and h.horasalida is not null and h.fechallegadarasa is null and h.horallegadarasa is null and h.FechaSalidaRASA is null and h.HoraSalidaRASA is null order by c.Nombre"
+
+			idconductor=rs4("idconductor")
+			cade="select nombre from conductores where idconductor=" & idconductor
+			set rs2=cn.execute(cade)
+			nombrecond=trim(rs2("nombre"))
+			rs2.close
+
+			idprov=rs4("codproveedor")
+			cade="select rsproveedor from proveedores where idproveedor=" & idprov
+			set rs2=cn.execute(cade)
+			nombreprov=trim(rs2("rsproveedor"))
+			rs2.close
+
+
+
+//////////////ESTO ESTABA EN EL CÁLCULO DE HORAS EN LA WEB///////////////////////7
+							horas=datediff("n",rs2("horallegada"),rs2("horasalida"))
+							todo = horas / 60
+							entero = Int(todo)
+							partedec = todo - Int(todo)
+        						If partedec = 0 Then
+            							horast = Int(todo)
+	        					End If
+							If partedec > 0 And partedec <= 0.25 Then
+								if entero>0 then
+    									horast =FormatNumber(Int(todo),2)
+								else
+									horast=0.50
+								end if
+							End If
+							If partedec > 0.25 And partedec <= 0.50 Then
+    								horast = FormatNumber(Int(todo) + 0.5,2)
+							End If
+							If partedec > 0.50 And partedec <= 0.75 Then
+						    		horast = FormatNumber(Int(todo) + 1,2)
+							End If
+							If partedec > 0.75 Then
+   								horast = Int(todo) + 1
+							End If
+							if horast>0 then%>
+								<td style="font-family: Verdana;"><center><h6><%=FormatNumber(horast,2)%></h6></center></td>
+							<%else%>
+								<td style="font-family: Verdana;"><center><h6>0</h6></center></td>
+							<%end if
+							totalhs=totalhs+horast
+							horast=0
+						else%>
+							<td style="font-family: Verdana;"><center><h6>--</h6></center></td>
+						<%end if%>
+
+
+
+
+/////////////////////ESTO ESTA EN EL CÁLCULODE HORAS EL 18/06/23//////////////////
+
+							If Trim(RS2("horasalida")) > inicio Then
+								cadena = Trim(RS2("horasalida"))
+								hora = Mid(cadena, 1, 2)
+								minuto = Mid(cadena, 4, 2)%>
+horaSAL=<%=hora%> - minutoSAL=<%=minuto%>
+				                            	<%If minuto < "15" Then
+                                					hora = hora
+				                                	minuto = "00"
+                            					End If
+				                            	If minuto >= "15" And minuto <= "45" Then
+                                					hora = hora
+				                                	minuto = "30"
+                            					End If
+				                            	If minuto > "45" And minuto <= "59" Then
+                                					hora = hora + 1
+				                                	minuto = "00"
+                            					End If
+								if hora<10 then
+									hora=hora
+								else
+									hora=hora
+								end if
+				                            	horadesalida = hora & ":" & minuto%>
+                            					<%cadena = Trim(inicio)%>
+inicio =<%=inicio%>
+								<%hora = Mid(cadena, 1, 2)
+								minuto = Mid(cadena, 4, 2)
+				                            	If minuto < "15" Then
+                                					hora = hora
+			                                		minuto = "00"
+                            					End If
+				                            	If minuto >= "15" And minuto <= "45" Then
+                                					hora = hora
+				                                	minuto = "30"
+                            					End If
+				                            	If minuto > "45" And minuto <= "59" Then
+                                					hora = hora + 1
+				                                	minuto = "00"
+                            					End If
+
+								if hora<10 then
+									hora=hora
+								else
+									hora=hora
+								end if
+
+				                            	horadellegada = hora & ":" & minuto%>
+                                
+horaLL=<%=hora%> minutoLL=<%=minuto%>
+                        					<%If IsNull(RS2("horasalida")) Or IsNull(RS2("horallegada")) Then
+				                            		horast = 0
+                        					Else
+				                            		horast = DateDiff("n", horadellegada, horadesalida) / 60
+                        					End If
+								if horast>0 then%>
+									<td style="font-family: Verdana;"><center><h6><%=FormatNumber(horast,2)%></h6></center></td>
+								<%else%>
+									<td style="font-family: Verdana;"><center><h6>0</h6></center></td>
+								<%end if
+				                        	inicio = Trim(horadesalida)
+                        					fechainicio = RS2("fechasalida")
+				                            	totalhs = totalhs + horast
+                            					horast = 0
+                        				Else
+                        					If RS2("fechasalida") = fechainicio Then%>
+
+									<%horast=0
+									totalhs=totalhs + horast%>
+									
+				                                 	<%horadesalida=inicio
+									horadellegada=inicio
+                                				
+                            					Else
+				                                	cadena = Trim(RS2("horasalida"))
+									hora = Mid(cadena, 1, 2)
+									minuto = Mid(cadena, 4, 2)                                
+                                					If minuto < "15" Then
+				                                    		hora = hora
+                                				    		minuto = "00"
+				                                	End If
+                                					If minuto >= "15" And minuto <= "45" Then
+				                                    		hora = hora
+                                				    		minuto = "30"
+				                                	End If
+                                					If minuto > "45" And minuto <= "59" Then
+				                                    		hora = hora + 1
+                                				    		minuto = "00"
+				                                	End If
+									if hora<10 then
+										hora=hora
+									else
+										hora=hora
+									end if
+                                					horadesalida = hora & ":" & minuto
+                                                        
+				 	                               	cadena = Trim(inicio)%>
+									<%hora = Mid(cadena, 1, 2)
+									minuto = Mid(cadena, 4, 2)
+	                        				        If minuto < 15 Then
+				        	                        	hora = hora
+                	        				            	minuto = "00"
+				                        	        End If
+                                					If minuto >= "15" And minuto <= "45" Then
+				 	                                	hora = hora
+        	                				            	minuto = "30"
+				                	                End If
+                                					If minuto > "45" And minuto <= "59" Then
+				                                    		hora = hora + 1
+                                				    		minuto = "00"
+				                                	End If
+									if hora<10 then
+										hora=hora
+									else
+										hora=hora
+									end if
+                                						horadellegada = hora & ":" & minuto
+                            						End If%>
+                                <%=horast%>-<%=totalhs%>
+                        						<%If IsNull(RS2("horasalida")) Or IsNull(RS2("horallegada")) Then
+                            							horast = 0
+                        						Else%>
+<%=horadellegada%>-<%=horadesalida%>
+                            							<%If RS2("fechasalida") <> fechainicio Then
+                                							horast = DateDiff("n", horadellegada, horadesalida) / 60 + 24
+                            							Else
+					                           	     		horast = DateDiff("n", horadellegada, horadesalida) / 60
+					                            		End If
+        	                					End If%>
+
+									<%if horast>0 then%>
+
+										<td style="font-family: Verdana;"><center><h6><%=FormatNumber(horast,2)%></h6></center></td>
+									<%else%>
+										<td style="font-family: Verdana;"><center><h6>0</h6></center></td>
+									<%end if
+								end if
+						                inicio = Trim(horadesalida)
+						                fechainicio = RS2("fechasalida")
+					                        totalhs = totalhs + horast
+					                        horast = 0
+							else%>
+							<td style="font-family: Verdana;"><center><h6>--</h6></center></td>
+						<%end if%>
+

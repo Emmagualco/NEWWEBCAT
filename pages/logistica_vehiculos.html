@@ -1,92 +1,80 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Logística de Vehículos - Groupe CAT Argentina</title>
-  <link rel="stylesheet" href="../assets/css/lclv.css" />
-  <link rel="stylesheet" href="../assets/css/style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" />
-  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Logística de Vehículos - Groupe CAT Argentina</title>
+    <link rel="stylesheet" href="../assets/css/lv.css" />
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 </head>
-
 <body>
-  <header>
-    <div class="container navbar">
-      <div class="logo">
-        <a href="../index.html"><img src="../assets/images/logo.png" class="logo" alt="Logo CAT"></a>
-      </div>
-      <div class="navbar-toggle">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
 
-      <nav>
-        <ul class="navbar-nav">
-          <li><a href="../index.html">Inicio</a></li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle">La Empresa</a>
-            <ul class="dropdown-menu">
-              <li><a href="/pages/quienessomos.html">Quiénes Somos</a></li>
-              <li><a href="/pages/nuestrahistoria.html">Nuestra Historia</a></li>
-              <li><a href="/pages/gestion-calidad.html">Gestión de Calidad y Medio Ambiente</a></li>
-            </ul>
-          </li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle">Servicios</a>
-            <ul class="dropdown-menu">
-              <li><a href="/pages/logistica_cargas.html">Logística de Cargas</a></li>
-              <li><a href="/pages/logistica_vehiculos.html">Logística de Vehículos</a></li>
-            </ul>
-          </li>
-          <li><a href="../presencia.html">Presencia Mundial</a></li>
-          <li><a href="../contact.html">Contacto</a></li>
-          <li><a href="/pages/otrosservicios.html" class="btn-catportal">CATPORTAL</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <main class="page-content">
-    <section class="container">
-      <h1 class="page-title">Logística de Vehículos</h1>
-      <div class="row mb-30">
-        <div class="col-md-6">
-          <div class="service-details">
-            <h3>Servicios Ofrecidos</h3>
-            <ul>
-              <li>Transporte y distribución nacional e internacional.</li>
-              <li>Transferencias entre centros operativos.</li>
-              <li>Stock y mantenimiento prolongado.</li>
-              <li>Preparación y accessorizing de vehículos.</li>
-              <li>Control de baterías, protecciones, exposiciones, etc.</li>
-              <li>Inventarios, gestiones portuarias y más.</li>
-            </ul>
-          </div>
+    <header class="main-header">
+        <div class="container navbar">
+            <a href="../index.html" class="logo">
+                <img src="../assets/images/logo.png" alt="Logo CAT">
+            </a>
+            <button class="navbar-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="main-nav" aria-label="Main navigation">
+                <ul class="navbar-nav">
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" aria-expanded="false" aria-haspopup="true">La Empresa</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/pages/quienessomos.html">Quiénes Somos</a></li>
+                            <li><a href="/pages/nuestrahistoria.html">Nuestra Historia</a></li>
+                            <li><a href="/pages/gestion-calidad.html">Gestión de Calidad y Medio Ambiente</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" aria-expanded="false" aria-haspopup="true">Servicios</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/pages/logistica_cargas.html">Logística de Cargas</a></li>
+                            <li><a href="/pages/logistica_vehiculos.html">Logística de Vehículos</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../presencia.html">Presencia Mundial</a></li>
+                    <li><a href="../contact.html">Contacto</a></li>
+                    <li><a href="/pages/otrosservicios.html" class="btn-catportal">CATPORTAL</a></li>
+                </ul>
+            </nav>
         </div>
-        <div class="col-md-6">
-          <img src="../assets/images/logistica/division-vehiculos.jpg" alt="Logística de Vehículos" style="width: 100%;">
-        </div>
-      </div>
-    </section>
+    </header>
 
-    <section class="container gallery-section">
-      <ul class="vehicle-gallery row">
+    <main class="page-content">
+        <section class="container">
+            <h1 class="page-title">Logística de Vehículos</h1>
+            <div class="service-presentation">
+                <div class="service-info">
+                    <h2>Servicios Ofrecidos</h2>
+                    <ul>
+                        <li>Transporte y distribución nacional e internacional.</li>
+                        <li>Transferencias entre centros operativos.</li>
+                        <li>Stock y mantenimiento prolongado.</li>
+                        <li>Preparación y accessorizing de vehículos.</li>
+                        <li>Control de baterías, protecciones, exposiciones, etc.</li>
+                        <li>Inventarios, gestiones portuarias y más.</li>
+                    </ul>
+                </div>
+                <div class="service-image">
+                    <img src="/assets/images/lv/division-vehiculos.jpg" alt="Logística de Vehículos">
+                </div>
+            </div>
         
-        <li class="col-md-4">
-          <figure>
-            <img src="../assets/images/lv/logistica-vehiculos-1.jpg" alt="">
-            <figcaption>LV</figcaption>
-          </figure>
-        </li>
-       
-      </ul>
-    </section>
-  </main>
-
-  <footer>
+ <div class="grid-gallery">
+      <img src="/assets/images/lv/batea.png" alt="Carga CAT 1">
+      <img src="/assets/images/lv/company.jpg" alt="Carga CAT 2">
+      <img src="/assets/images/lv/company.png" alt="Carga CAT 3">
+    </div>
+        </section>
+    </main>
+<footer>
     <div class="data-fiscal">
       <img src="../assets/images/datafiscal.jpg" alt="Data Fiscal">
     </div>
@@ -101,11 +89,9 @@
       <p><a href="mailto:info@groupecat.com.ar">info@groupecat.com.ar</a></p>
     </div>
   </footer>
-  
-
-  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-  <script src="../assets/js/main.js"></script>
-  <script src="../assets/js/navbar.js"></script>
+    
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/navbar.js"></script>
 </body>
-
 </html>
