@@ -1,10 +1,10 @@
-/* Título principal */
+/* ===== TÍTULO PRINCIPAL ===== */
 .section-title {
   text-align: center;
-  color: #003366; /* azul institucional */
+  color: #003366;
   font-size: 2.5rem;
   font-weight: bold;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   position: relative;
 }
 
@@ -13,83 +13,82 @@
   display: block;
   width: 80px;
   height: 3px;
-  background-color: #f1c40f; /* dorado */
+  background-color: #005f82;
   margin: 10px auto 0;
   border-radius: 2px;
 }
-
-/* Sección "La Compañía" */
+/* ===== SECCIÓN "LA COMPAÑÍA" ===== */
 .section-company {
+  background-color: #f4f7f9;
+  padding: 60px 20px;
+  color: #003366;
+}
+
+.section-company .content-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: center; /* Cambiado a center para centrar contenido */
-  padding: 60px 20px;
-  background-color: #dfdede;
-  gap: 30px;
-  width: 100%; /* Que ocupe todo el ancho */
-  margin: 0; /* Sin centrado automático */
+  gap: 40px;
 }
 
 .section-company .text-content {
-  flex: 0 0 600px; /* ancho fijo para texto */
-  max-width: 600px;
+  flex: 1;
   font-size: 1.1rem;
-  color: #333;
   line-height: 1.7;
-  text-align: center; /* Texto centrado */
-  margin: 0 20px; /* separación lateral opcional */
 }
 
 .section-company .image-content {
-  flex: 0 0 480px; /* ancho fijo para imagen */
+  flex: 1;
   text-align: center;
 }
 
+.section-company .image-content img {
+  max-width: 100%;
+  max-height: 400px;
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
 
-
-/* Sección "Mensaje del Director" */
+/* ===== SECCIÓN "MENSAJE DEL DIRECTOR" ===== */
 .section-director {
+  background-color: #ffffff;
   padding: 60px 20px;
-  background-color: #dfdede;
   color: #003366;
 }
 
-.section-director .section-title {
-  font-size: 2rem;
-  margin-bottom: 30px;
+.section-director .container {
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.section-director p {
-  font-size: 1rem;
-  line-height: 1.6;
-  margin-bottom: 20px;
+.section-director .section-heading {
+  text-align: center;
+  margin-bottom: 40px;
 }
 
-.section-director .mensaje-detalle {
+.section-director .director-details {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  margin-top: 30px;
-  gap: 30px;
+  gap: 40px;
 }
 
-.section-director .mensaje-detalle .fa-ul {
-  flex: 1 1 60%;
-  padding-left: 20px;
+.section-director .reason-list {
+  list-style: none;
+  padding: 0;
   margin: 0;
 }
 
-.section-director .mensaje-detalle .fa-ul li {
-  margin-bottom: 10px;
+.section-director .reason-list li {
   position: relative;
+  margin-bottom: 15px;
   padding-left: 25px;
-  font-size: 1rem;
-  color: #333;
+  line-height: 1.6;
 }
 
-.section-director .mensaje-detalle .fa-ul li::before {
+.section-director .reason-list li::before {
   content: "→";
   position: absolute;
   left: 0;
@@ -97,70 +96,40 @@
   font-weight: bold;
 }
 
-.section-director .mensaje-detalle .firma-director {
-  flex: 1 1 30%;
+.section-director .plan-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.section-director .director-signature {
   text-align: right;
-  font-weight: bold;
-  color: #003366;
+  margin-top: 30px;
 }
 
-.section-director .mensaje-detalle strong {
-  color: #003366;
-}
-
-.section-director .extras {
-  max-width: 900px;
-  margin: 40px auto 0;
-  font-size: 1rem;
-}
-
-.section-director .extras .fa-ul {
+.section-director .director-signature p {
   margin: 0;
-  padding-left: 20px;
 }
 
-.section-director .extras .fa-ul li {
-  margin-bottom: 10px;
-  padding-left: 25px;
-  position: relative;
-  color: #333;
-}
-
-.section-director .extras .fa-ul li::before {
-  content: "→";
-  position: absolute;
-  left: 0;
-  color: #003366;
-  font-weight: bold;
-}
-
-/* Responsivo */
-@media (max-width: 768px) {
-  .section-company {
+/* ===== RESPONSIVO ===== */
+@media (max-width: 992px) {
+  .section-company .content-wrapper {
     flex-direction: column;
-    align-items: center;
-    text-align: center;
   }
-
   .section-company .text-content {
     text-align: center;
   }
+  .section-company .image-content img {
+    max-height: 300px;
+  }
 }
 
-
-  .section-company .image-content img {
-    max-height: 220px;
-  }
-
-  .section-director .mensaje-detalle {
+@media (max-width: 768px) {
+  .section-director .director-details {
     flex-direction: column;
   }
-
-  .section-director .mensaje-detalle .firma-director {
+  .section-director .director-signature {
     text-align: center;
     margin-top: 20px;
   }
-
-
-
-
+}

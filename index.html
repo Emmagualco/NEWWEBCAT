@@ -16,23 +16,25 @@
 </head>
 
 <body>
+<header>
+    <div class="container">
+      <nav class="navbar" role="navigation" aria-label="Navegación principal">
+        <div class="logo">
+          <a href="index.html" aria-label="Ir a inicio">
+            <img src="assets/images/logo.png" alt="Logo CAT Groupe Argentina" width="100" height="50">
+          </a>
+        </div>
+        
+        <button class="navbar-toggle" aria-label="Abrir menú de navegación" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
 
-  <header>
-    <div class="container navbar">
-      <div class="logo">
-        <a href="index.html"><img src="assets/images/logo.png" class="logo" alt="Logo CAT"></a>
-      </div>
-      <div class="navbar-toggle">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-
-      <nav>
         <ul class="navbar-nav">
           <li><a href="index.html">Inicio</a></li>
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle">La Empresa</a>
+            <a href="#" class="dropdown-toggle" aria-haspopup="true">La Empresa</a>
             <ul class="dropdown-menu">
               <li><a href="/pages/quienessomos.html">Quiénes Somos</a></li>
               <li><a href="/pages/nuestrahistoria.html">Nuestra Historia</a></li>
@@ -40,16 +42,15 @@
             </ul>
           </li>
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle">Servicios</a>
+            <a href="#" class="dropdown-toggle" aria-haspopup="true">Servicios</a>
             <ul class="dropdown-menu">
               <li><a href="/pages/logistica_cargas.html">Logística de Cargas</a></li>
               <li><a href="/pages/logistica_vehiculos.html">Logística de Vehículos</a></li>
             </ul>
           </li>
           <li><a href="presencia.html">Presencia Mundial</a></li>
-          <li><a href="contact.html">Contacto</a></li>
+          <li><a href="contact.html" aria-current="page">Contacto</a></li>
           <li><a href="/pages/otrosservicios.html" class="btn-catportal">CATPORTAL</a></li>
-
         </ul>
       </nav>
     </div>
@@ -154,7 +155,7 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/js/navbar.js"></script
+  
 
 
 

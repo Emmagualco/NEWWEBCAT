@@ -1,13 +1,16 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const toggleBtn = document.querySelector(".navbar-toggle");
-  const navMenu = document.querySelector(".navbar-nav");
-
-  if (toggleBtn && navMenu) {
-    toggleBtn.addEventListener("click", () => {
-      navMenu.classList.toggle("active");
-      toggleBtn.classList.toggle("open");
+  const menuToggle = document.querySelector('.navbar-toggle');
+  const mobileMenu = document.querySelector('.navbar-nav');
+  
+  if (menuToggle) {
+    menuToggle.addEventListener('click', function() {
+      mobileMenu.classList.toggle('active');
+      const isExpanded = mobileMenu.classList.contains('active');
+      menuToggle.setAttribute('aria-expanded', isExpanded);
     });
   }
 });
+
+
 
   
