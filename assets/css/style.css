@@ -395,6 +395,21 @@ section.container > h2 span::after,
     font-size: 2.2rem;
   }
 }
+/* Mobile menu */
+.navbar-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.navbar-toggle span {
+  width: 25px;
+  height: 3px;
+  background: #003057;
+  margin: 3px 0;
+  transition: 0.3s;
+}
 
 /* ======================================================
    ACCESIBILIDAD Y OTROS DETALLES
@@ -446,25 +461,20 @@ section.container > h2 span::after,
   z-index: 2;
 }
 
+
 .swiper-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
   margin-top: 40px;
 }
 
 .swiper-slide {
-  width: auto;
-  height: auto;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0 35px;
 }
 
 .swiper-slide img {
-  width: 180px;
-  height: 90px;
+  width: 160px;
+  height: 80px;
   object-fit: contain;
   filter: grayscale(60%);
   transition: filter 0.3s ease;
@@ -477,6 +487,15 @@ section.container > h2 span::after,
   outline: none;
   cursor: pointer;
 }
+
+/* 📱 Ajustes responsive */
+@media (max-width: 768px) {
+  .swiper-slide img {
+    width: 120px;
+    height: auto;
+  }
+}
+
 /* ======================================================
    FOOTER
    ====================================================== */
@@ -577,25 +596,81 @@ footer {
 
 @media (max-width: 768px) {
   .swiper-wrapper {
+    display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start !important;
-    padding-left: 10px;
+    justify-content: center;
+    gap: 20px;
   }
 
   .swiper-slide {
-    padding: 10px;
-    width: auto !important;
-    flex-shrink: 0;
-    margin-bottom: 25px;
+    flex: 0 1 40%; /* dos logos por fila */
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .swiper-slide img {
-    width: 100px !important;
-    height: auto;
     max-width: 100%;
+    height: auto;
+    object-fit: contain;
   }
+}
 
-  #clientes h2 {
-    font-size: 2.2rem;
+
+/* Responsive */
+@media (max-width: 768px) {
+  .navbar-nav {
+    display: none;
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: white;
+    flex-direction: column;
+    padding: 1rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
   }
+  
+  .navbar-nav.active {
+    display: flex;
+  }
+  
+  .navbar-toggle {
+    display: flex;
+  }
+  
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .contact-section h1 {
+    font-size: 2rem;
+  }
+}
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Focus indicators */
+*:focus {
+  outline: 2px solid #00a7e1;
+  outline-offset: 2px;
+}
+
+/* Loading skeleton */
+.skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
 }

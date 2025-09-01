@@ -35,36 +35,26 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener('load', equalHeight);
   window.addEventListener('resize', equalHeight);
 
-  // =============== Swiper Carrusel ===================
-  if (document.querySelector('.mySwiper')) {
-    const swiper = new Swiper('.mySwiper', {
-      loop: true,
-      autoplay: {
-        delay: 2500,
-        disableOnInteraction: false,
-      },
-      slidesPerView: 5,
-      spaceBetween: 30,
-      breakpoints: {
-        320: {
-          slidesPerView: 2,
-          spaceBetween: 10
-        },
-        480: {
-          slidesPerView: 3,
-          spaceBetween: 15
-        },
-        768: {
-          slidesPerView: 4,
-          spaceBetween: 20
-        },
-        1024: {
-          slidesPerView: 5,
-          spaceBetween: 30
-        }
-      }
-    });
-  }
+// =============== Swiper Carrusel ===================
+if (document.querySelector('.mySwiper')) {
+const swiper = new Swiper(".mySwiper", {
+  loop: true,
+  autoplay: {
+    delay: 2500,
+    disableOnInteraction: false,
+  },
+  slidesPerView: 5,
+  spaceBetween: 30,
+  breakpoints: {
+    320: { slidesPerView: 2, spaceBetween: 10 },
+    480: { slidesPerView: 3, spaceBetween: 15 },
+    768: { slidesPerView: 4, spaceBetween: 20 },
+    1024: { slidesPerView: 5, spaceBetween: 30 },
+  },
+});
+
+}
+
 
   // =============== Navbar Toggle Responsive ===================
   const menuToggle = document.querySelector('.navbar-toggle');
@@ -79,6 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 });
+
 
 
 
