@@ -67,17 +67,47 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     if (isValid) {
-      // Simulate form submission
       const submitBtn = form.querySelector('.btn-submit');
       submitBtn.textContent = 'Enviando...';
       submitBtn.disabled = true;
-      
-      setTimeout(() => {
-        alert('Mensaje enviado exitosamente. Te contactaremos pronto.');
-        form.reset();
+
+      // Enviar via fetch a handler server-side
+      const formData = new FormData(form);
+
+      fetch('/send_contact.asp', {
+        method: 'POST',
+        body: formData,
+      })
+      .then(async (res) => {
+        const text = await res.text();
+        let data = null;
+        try { data = JSON.parse(text); } catch (err) { data = null; }
+
+        if (!res.ok) {
+          const msg = (data && data.error) ? data.error : 'Error en el servidor al enviar el mensaje';
+          throw new Error(msg);
+        }
+
+        if (data && data.success) {
+          // mostrar mensaje amigable
+          const successMsg = document.createElement('div');
+          successMsg.className = 'form-success';
+          successMsg.setAttribute('role','status');
+          successMsg.textContent = 'Mensaje enviado exitosamente. Te contactaremos pronto.';
+          form.parentNode.insertBefore(successMsg, form);
+          form.reset();
+        } else {
+          const msg = (data && data.error) ? data.error : 'No se pudo enviar el mensaje.';
+          throw new Error(msg);
+        }
+      })
+      .catch(err => {
+        alert('Error: ' + err.message);
+      })
+      .finally(() => {
         submitBtn.textContent = 'Enviar Mensaje';
         submitBtn.disabled = false;
-      }, 2000);
+      });
     }
   }
   
